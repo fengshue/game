@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .title{
+      text-align: center;
+      color: #f00;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 100px;
+    }
+    #map {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      background: #ccc;
+      margin-left: 110px;
+    }
+    .text-container {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-54px);
+    }
+    .level {
+      display: block;
+      width: 100px;
+      height: 30px;
+      margin-top: 50px;
+    }
+    .level-active {
+      background: goldenrod;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class = 'snake-wrap'>
+    <div class='title'>贪吃蛇游戏</div>
+    <div id = "map" class="map"></div>
+    <div id = 'start' class = 'text-container'>
+      <button class='level'>初级</button>
+      <button class='level'>中级</button>
+      <button class='level'>高级</button>
+      <button id='btn' class='level'>开始</button>
+    </div>
+  </div>
+  <script>
+    var map = document.getElementById("map");
+    function Snake() {
+      this.width = 10;
+      this.height = 10;
+      this.direction = 'right';
+      this.body = [
+        { x: 2, y: 0 },
+        { x: 1, y: 0 },
+        { x: 0, y: 0 }
+      ];
+      this.display = function () {
+        for (var i = 0; i < this.body.length; i++) {
+          if (this.body[i].x != null) {
+            var s = document.createElement("div");
+            this.body[i].flag = s;
+
+            s.style.width = this.width + 'px';
+            s.style.height = this.height + 'px';
+            s.style.borderRadius = '50%';
+            s.style.background = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+
+            s.style.position = 'absolute';
+            s.style.left = this.body[i].x * this.width + 'px';
+            s.style.top = this.body[i].y * this.height + 'px';
+
+            map.appendChild(s);
+          }
+        }
+      }
+      this.run = function () {
+        for (var i = this.body.length - 1; i > 0; i--) {
+          this.body[i].x = this.body[i - 1].x;
+          this.body[i].y = this.body[i - 1].y;
+        }
+        switch (this.direction) {
+          case "left":
+            this.body[0].x -= 1;
+            break;
+          case "right":
+            this.body[0].x += 1;
+            break;
+          case "up":
+            this.body[0].y -= 1;
+            break;
+          case "down":
+            this.body[0].y += 1;
+            break;
+        }
+        if (this.body[0].x < 0 || this.body[0].x > 79 || this.body[0].y < 0 || this.body[0].y > 39) {
+          clearInterval(timer);
+          alert("你撞死了", window.location.reload());
+
+          for (var i = 0; i < this.body.length; i++) {
+            if (this.body[i].flag != null) {
+              map.removeChild(this.body[i].flag);
+            }
+          }
+          this.body = [
+            { x: 2, y: 0 },
+            { x: 1, y: 0 },
+            { x: 0, y: 0 }
+          ];
+          this.direction = 'right';
+          this.display();
+          return false;
+        }
+        if (this.body[0].x == food.x && this.body[0].y == food.y) {
+          this.body.push({ x: null, y: null, flag: null });
+          map.removeChild(food.flag)
+          food.display();
+        }
+
+        for (var i = 4; i < this.body.length; i++) {
+          if (this.body[0].x == this.body[i].x && this.body[0].y == this.body[i].y) {
+            clearInterval(timer);
+            alert("你怎么可以指自己呢", window.location.reload());
+
+            for (var i = 0; i < this.body.length; i++) {
+              if (this.body[i].flag != null) {
+                map.removeChild(this.body[i].flag)
+              }
+            }
+            this.body = [
+              { x: 2, y: 0 },
+              { x: 1, y: 0 },
+              { x: 0, y: 0 }
+            ];
+            this.direction = 'right';
+            this.display();
+            return false;
+          }
+        }
+        for (var i = 0; i < this.body.length; i++) {
+          if (this.body[i].flag != null) {
+            map.removeChild(this.body[i].flag);
+          }
+        }
+        this.display();
+      }
+    }
+    function Food() {
+      this.width = 10;
+      this.height = 10;
+      this.display = function () {
+        var f = document.createElement('div');
+        this.flag = f;
+
+        f.style.width = this.width + 'px';
+        f.style.height = this.height + 'px';
+        f.style.background = 'red';
+        f.style.borderRadius = '50%';
+
+
+        this.x = Math.floor(Math.random() * 80);
+        this.y = Math.floor(Math.random() * 40);
+        f.style.position = 'absolute';
+        f.style.left = this.x * this.width + 'px';
+        f.style.top = this.y * this.height + 'px';
+
+        map.appendChild(f);
+      }
+    }
+
+    var snake = new Snake();
+    var food = new Food();
+    snake.display();
+    food.display();
+
+    document.body.onkeydown = function (e) {
+      var ev = e || window.event;
+      switch (ev.keyCode) {
+        case 38:
+          if (snake.direction != 'down') {
+            snake.direction = 'up';
+          }
+          break;
+        case 40:
+          if (snake.direction != 'up') {
+            snake.direction = 'down';
+          }
+          break;
+        case 37:
+          if (snake.direction != 'right') {
+            snake.direction = 'left';
+          }
+          break;
+        case 39:
+          if (snake.direction != 'left') {
+            snake.direction = 'right';
+          }
+          break;
+      }
+    }
+    // 1.初始化: 
+    //     1） 展示选择等级的按钮，游戏地图不展示
+    //     2）等级按钮默认选择是“初级”，速度是200ms
+    //     3）切换等级按钮，速度转为对应值
+    var oStart = document.getElementById('start');
+    var oMap = document.getElementById('map');
+    var level = 'first';
+    var spped = 200;
+    var oLevel = document.getElementsByClassName('level');
+    var begin = document.getElementById('btn');
+    var timer;
+    oLevel[0].className = 'level level-active';
+    oLevel[0].onclick = function () {
+      spped = 200;
+      oLevel[0].className = 'level level-active';
+      oLevel[1].className = 'level';
+      oLevel[2].className = 'level';
+    };
+    oLevel[1].onclick = function () {
+      spped = 100;
+      oLevel[1].className = 'level level-active';
+      oLevel[0].className = 'level';
+      oLevel[2].className = 'level';
+    };
+    oLevel[2].onclick = function () {
+      spped = 50;
+      oLevel[2].className = 'level level-active';
+      oLevel[1].className = 'level';
+      oLevel[0].className = 'level';
+    };
+    oStart.style.visibility = '';
+    oMap.style.visibility = 'hidden';
+  
+    // 2.点击开始按钮
+    begin.onclick = function () {
+      oStart.style.visibility = 'hidden';
+      oMap.style.visibility = ''; 
+      clearInterval(timer)
+      timer = setInterval('snake.run()', spped);
+    };
+
+    // 3.结束
+
+    
+
+   
+  </script>
+</body>
+
+</html>

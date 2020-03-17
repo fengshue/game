@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="{CHARSET}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-size: 15px;
+    }
+    form{
+      margin-left: 100px;
+    }
+    .logo{
+      color:#aabbff;
+      font-size:17px;
+    }
+    .innerGrid{
+      width:20px;
+      height:20px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      line-height: 20px;
+      float: left;
+      background-color: bisque;
+      border:solid coral 1px ;
+    }
+    .clearBoth{
+      clear: both;
+    }
+    .outGrid{
+      filter:alpha(opacity=100);
+      -moz-opacity: 1;
+      -khtml-opacity: 1;
+      opacity: 1;
+      width:20px;
+      height:20px;
+      margin: 0;
+      padding:0;
+      float: left;
+      background-color: thistle;
+      border:solid gold 1px;
+    }
+    .disOutGrid{
+      filter:alpha(opacity=100);
+      -moz-opacity:0.0;
+      -khtml-opacity:0.0;
+      opacity: 0.0;
+      width:20px;
+      height:20px;
+      margin:0;
+      padding:0;
+      float: left;
+      background-color: palevioletred;
+      border: solid bisque 1px;
+    }
+    .redOutGrid{
+      filter:alpha(opacity=100);
+      -moz-opacity:1;
+      -khtml-opacity:1;
+      opacity: 1;
+      width: 20px;
+      height:20px;
+      margin: 0;
+      padding: 0;
+      float: left;
+      background-color: brown;
+      color:white;
+      text-align: center;
+      line-height: 20px;
+      border:solid steelblue 1px;
+    }
+    .guessOutGrid{
+      filter: alpha(opacity=100);
+      -moz-opacity:1;
+      -khtml-opacity:1;
+      opacity:1;
+      width:20px;
+      height:20px;
+      margin:0;
+      padding:0;
+      float: left;
+      color:rebeccapurple;
+      text-align:center;
+      line-height: 20px;
+      background-color: darksalmon;
+      border:solid orangered 1px
+    }
+  </style>
+</head>
+<body>
+  <form action="javaScript:createContent()">
+    <div id="message" style='color:#a00eff; display: none;' >booNum must less than xyNum*xyNum</div>
+    <div class='logo'>扫雷</div>
+    格局长度：
+    <input id="xyNum" type="number" name='points' min='1' max='50'>
+    地雷数量：
+    <input id="booNum" type="number" name='points' min='1' max='2500'>
+    <input type="submit" value="开始游戏">
+  </form>
+  <div style='position: relative;margin: 20px 20px;'>
+    <div id='content'></div>
+    <div id='outcontent' style="position: absolute;top:0px;"></div>
+  </div>
+  <script>
+    document.oncontextmenu = function (e) {
+      e.preventDefault();
+    }
+    var xyNum = document.getElementById('xyNum'),
+      booNum = document.getElementById('booNum'),
+      message = document.getElementById('message')
+      content = document.getElementById('content'),
+      outcontent = document.getElementById('outcontent'),
+      commonFunction = {
+        getPromptArray: function (xyL, BIndex) {
+          var resultArry = [];
+          var resultObj = {};
+          var bx = 0,
+          by = 0;
+
+          function calculateA (item){
+            bx = item[0];
+            by = item[1];
+            if(bx > 0){
+              resultArry.push('x' + (bx - 1) + 'y' + (by));
+            }
+            if(bx < xyL - 1){
+              resultArry.push('x' + (bx + 1) + 'y' + (by));
+            }
+            if(by > 0){
+              resultArry.push('x' + (bx) + 'y' + (by - 1));
+            }
+            if(by < xyL - 1){
+              resultArry.push('x' + (bx) + 'y' + (by + 1));
+            }
+            if(bx > 0 && by > 0){
+              resultArry.push('x' + (bx - 1) + 'y' + (by - 1));
+            }
+            if(bx > 0 && by < xyL -1){
+              resultArry.push('x' + (bx - 1) + 'y' + (by + 1));
+            }
+            if(bx < xyL - 1&& by > 0){
+              resultArry.push('x' + (bx + 1) + 'y' + (by - 1));
+            }
+            if(bx < xyL - 1 && by < xyL - 1){
+              resultArry.push('x' + (bx + 1) + 'y' + (by + 1));
+            }
+          }
+          function getResultObj(arr){
+            var obj = {};
+            for(var ai = 0;ai < arr.length; ai++){
+              var item = arr[ai];
+              if(obj[item] == null) obj[item] = 1;
+              else obj[item] = obj[item] + 1;
+            }
+            return obj;
+          };
+          for(var bi = 0;bi < BIndex.length;bi++){
+            var Bitem = BIndex[bi];
+            calculateA(Bitem);
+          };
+          resultObj = getResultObj(resultArry);
+          return resultObj;
+        },
+        getBIndex: function (xyn, boo){
+          var result = [];
+          var xy = [];
+
+          function canAddRes(){
+            xy = result[result.length - 1];
+            for(var l = 0;l < result.length - 1;l++){
+              if(result[l][0] == xy[0] && result[l][1] == xy[1]){
+                return false;
+              }
+            }
+            return true;
+          }
+          for(var i = 0;i < boo;i++){
+            var x = parseInt(Math.random() * xyn);
+            var y = parseInt(Math.random() * xyn);
+            result[i] = [x, y];
+            if(!canAddRes()){
+              i--;
+            }
+          }
+          return result;
+        },
+        getInnerArea: function () {
+          if(xyNum.value * xyNum.value < booNum.value){
+            message.style.display = 'block';
+            return false;
+          }else{
+            while(content.hasChildNodes()){
+              content.removeChild(content.firstChild);
+            }
+          }
+          var oFrag = document.createDocumentFragment();
+          var BIndex = [];
+          BIndex = commonFunction.getBIndex(xyNum.value, booNum.value);
+          for(var xi = 0;xi < xyNum.value;xi++){
+            var oLi = document.createElement('div');
+            oLi.id = 'x' + xi;
+            for(var yi = 0; yi < xyNum.value;yi++){
+              var oDiv = document.createElement('div');
+              oDiv.id = 'x' + xi + 'y' + yi;
+              oDiv.className = 'innerGrid';
+              oLi.appendChild(oDiv);
+              if(yi == xyNum.value - 1){
+                var endDiv = document.createElement('div');
+                endDiv.className = 'clearBoth';
+                oLi.appendChild(endDiv);
+              }
+            }
+            oFrag.appendChild(oLi)
+          }
+          content.appendChild(oFrag);
+          var promptObj = commonFunction.getPromptArray(xyNum.value, BIndex);
+          for(var pItem in promptObj){
+            document.getElementById(pItem).textContent = promptObj[pItem];
+          }
+          for(var Bi = 0;Bi < BIndex.length;Bi++){
+            document.getElementById('x' + BIndex[Bi][0] +'y' +BIndex[Bi][1]).textContent='b';
+          }
+          return true
+        },
+        getOutArea: function () {
+          while(outcontent.hasChildNodes()){
+            outcontent.removeChild(outcontent.firstChild);
+          }
+          var oFrag = document.createDocumentFragment();
+          for(var xi = 0;xi < xyNum.value;xi++){
+            var oLi = document.createElement('div');
+            oLi.id = xi;
+            for(var yi = 0;yi < xyNum.value;yi++){
+              var oDiv = document.createElement('div');
+              oDiv.id = xi + 'y' + yi;
+              oDiv.className = 'outGrid';
+              oLi.appendChild(oDiv);
+              if(yi == xyNum.value - 1) {
+                var endDiv = document.createElement('div');
+                endDiv.className = 'clearBoth';
+                oLi.appendChild(endDiv);
+              }
+            }
+            oFrag.appendChild(oLi);
+          }
+        outcontent.appendChild(oFrag);
+        },
+        checkEnd:function () {
+          if(document.getElementsByClassName('outGrid').length > booNum.value) {
+            return false;
+          }else{
+            return true;
+          }
+        },
+        LClickButton: function (elem) {
+          var result = false;
+          var id = this.id;
+          var interX = parseInt(id.split('y')[0]);
+          var interY = parseInt(id.split('y')[1]);
+          var doc = document.getElementById('x' + interX + 'y' + interY);
+          if(elem.button == 2){
+            if(this.className == 'outGrid'){
+              this.className = 'guessOutGrid';
+              this.textContent = '?';
+              result = false;
+            }else if(this.className == "guessOutGrid") {
+              this.className = 'redOutGrid';
+              this.textContent = '7';
+              result = false;
+            }else if(this.className == "redOutGrid") {
+              this.className = 'outGrid';
+              this.textContent = '';
+              result = false;
+            }
+          }else if (elem.button == 0){
+            if(this.className == 'disOutGrid'){
+              result = false;
+            }else if(this.className != 'outGrid'){
+              this.className = 'outGrid';
+              this.textContent = '';
+              return false;
+            }else if(doc.textContent == 'b'){
+              alert('you are fail');
+              while(outcontent.hasChildNodes()){
+                outcontent.removeChild(outcontent.firstChild);
+              }
+              result = false;
+            }else if(doc.textContent != ''){
+              this.className = 'disOutGrid';
+              result =  true;
+            }else{
+              commonFunction.removeSplace(this);
+              result = true;
+            }
+            if(result && commonFunction.checkEnd()){
+              while(outcontent.hasChildNodes()){
+                outcontent.removeChild(outcontent.firstChild);
+              }
+              alert('you are win')
+            }
+          }
+          return result;
+        },
+        removeSplace: function removeS (elem) {
+          if(elem.className == 'disOutGrid'){
+            return false;
+          }
+          var id = elem.id;
+          var interX = parseInt(id.split('y')[0]);
+          var interY = parseInt(id.split('y')[1]);
+          var doc = document.getElementById('x' + interX +'y' + interY);
+          if(doc.textContent != 'b'){
+            elem.className = 'disOutGrid';
+            if(doc.textContent != ''){
+              return false;
+            }
+            if(interX > 0){
+              removeS(document.getElementById((interX - 1) + 'y' + interY));
+            }
+            if(interX < xyNum.value - 1){
+              removeS(document.getElementById((interX + 1) + 'y' + interY));
+            }
+            if(interY > 0){
+              removeS(document.getElementById((interX) + 'y' + (interY - 1)));
+            }
+            if(interY < xyNum.value - 1){
+              removeS(document.getElementById((interX) + 'y' + (interY + 1)));
+            }
+          }
+        }
+      },
+      createContent = function () {
+        if (commonFunction.getInnerArea()){
+          commonFunction.getOutArea();
+          var outDiv = document.getElementsByClassName('outGrid');
+          for(var i = 0; i < outDiv.length;i++){
+            outDiv[i].onmousedown = commonFunction.LClickButton;
+          }
+        }
+      }
+  </script>
+</body>
+</html>

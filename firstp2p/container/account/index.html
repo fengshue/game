@@ -1,0 +1,882 @@
+<!-- {include file='web/views/header.html'} -->
+<!doctype html>
+<html>
+
+<head>
+  <meta name='viewport' content='width=device-width' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <title>网信</title>
+  <link rel='apple-touch-icon-precomposed' href="{$APP_SKIN_PATH}images/favicon.png" type='image/x-icon' />
+  <link rel='shortcut icon' href='{$APP_SKIN_PATH}images/favicon.png' type='image/x-icon' />
+  <meta name='keywords' content='网信，第一p2p, p2p，网络借贷，网络贷款，借贷 ，网络平台，民间借贷，小额贷款，无抵押贷款，信用贷款，投资理财，借钱，企业贷款，小企业贷款，个人经营贷款，融资' />
+  <meta name='description' content='{if isset($page_description) && $page_description}{$page_description}{/if}{$site_info.SHOP_DESCRIPTION}' />
+
+  <!--public js&css start -->
+  <script src='../js/jquery-3.4.1.min.js'></script>
+  <link rel='stylesheet' href='../../css/account/index.css'>
+  <link rel='stylesheet' type='text/css' href='../../css/common.css' />
+  <link rel='stylesheet' type='text/css' href='../../css/base.css' />
+  <!--public js&css end -->
+
+</head>
+
+<body>
+  <!--头部开始-->
+  <header class='m_header clearfix'>
+    <div class='top'>
+      <div class='w1100'>
+        <div class='fl color_red public'>
+          <style>
+            .p_new_user_page .bannerBox {
+              background: url(//static.firstp2p.com/attachment/201901/10/20/828e68c7bccabbccb9895047bb6ae2d2/index.jpg) no-repeat center top;
+            }
+
+            .p_new_user_page ._bannerBox {
+              background: url(//static.firstp2p.com/attachment/201901/10/20/db4e53ec724d78b7b2499df33ac74cf2/index.jpg) no-repeat center top;
+              height: 560px
+            }
+
+            .bannerBox .iframe_register {
+              top: 12px;
+            }
+          </style>
+          <style>
+            .p_new_user_page .lingqu_btn a {
+              display: block;
+              width: 509px;
+              height: 104px;
+              background: url(//static.firstp2p.com/attachment/201807/05/17/e99e35c1e3c34dd61fd388fba883522a/index.jpg.jpg) no-repeat;
+              margin: 20px auto 60px;
+            }
+          </style>
+        </div>
+        <ul class='fr nav'>
+          <li id='liIner46782_account_Li'>
+            <div class='ztx_liIner46782_box act'>
+              <div class='inner'>
+                <a href='/account' class='ztx_liIner46782_NavA'>您好，纪莹莹</a>
+              </div>
+              <div class='cont ztx_liIner46782_act'>
+                <div class='dataPanel'>
+                  <div class='ye46782'><label>可用余额：</label><span>{{money}}元</span></div>
+                  <div class='hb'><label>含 {{bonus}} <span id='j_bonus_name'></span></label></div>
+                  <!--用户是否命中黑名单：isCompliantUser（1在黑名单内）  -->
+                  <div class='bntBox'>
+                    <a class='cz JS_cz' href='/account/charge'>充值</a>
+                    <a class='j_txp2p_btn tx' href='javascript:void(0);'>提现</a>
+                  </div>
+                  <ul class='ztx_liIner46782_ul'>
+                    <li>待收本金：{{principal}}元</li>
+                    <li>待收收益：{{interest}}元</li>
+                    <li>待获奖励：{{coupon}}元</li>
+                  </ul>
+                  <div class='accountABox'>
+                    <a class='accountA' href='/account'><i class='JS_a'>进入我的账户</i></a>
+                  </div>
+                  <div class='cg_carry_data none'>
+                    <input type='hidden' id='cg_isSvUser' value='{{isSvUser}}'>
+                    <input type='hidden' id='cg_totalCashMoney' value='{{totalCashMoney}}'>
+                    <input type='hidden' id='cg_wxCashMoney' value='{{wxCashMoney}}'>
+                    <input type='hidden' id='cg_svCashMoney' value='{{svCashMoney}}'>
+                    <input type='hidden' id='cg_bankcardVerifyStatus' value='{{bankcardVerifyStatus}}'>
+                    <input type='hidden' id='user_id' value='11599094'>
+                    <input type='hidden' id='user_name' value='纪莹莹'>
+
+                  </div>
+                </div>
+                <div class='errorPanel'></div>
+              </div>
+            </div>
+            <script type='text/javascript'>
+              (function () {
+                // 埋点
+                var user_id = $('#user_id').val()
+                if (!!user_id) {
+                  var user_name = $('#user_name').val()
+                  zhuge.identify(user_id, {
+                    '用户名字': user_name
+                  })
+                }
+                $('.top').on('click', '.JS_cz', function () {
+                  zhuge.track('首页_顶部下拉框_点击充值')
+                });
+                var accountLi = $('#liIner46782_account_Li');
+                var dataPanel = accountLi.find('.dataPanel:first');//展现数据面板
+                var errorPanel = accountLi.find('.errorPanel:first');//错误数据面板
+                /**
+                 *  面板展示控制，hide表示展现数据，隐藏loading效果；load表示loading效果修改成提示重新加载效果;login表示登陆超时，提示请重新登录
+                 */
+                function drawPanel(callType, data) {
+                  var box = dataPanel;
+                  var setters = {
+                    'data': function () {//展现数据
+                      $('#j_bonus_name').html(new_bonus_unit + new_bonus_title);
+                      var html = box.html();
+                      var regObj = null;
+                      $.each(data, function (key, val) {
+                        regObj = new RegExp('{{' + key + '}}', 'g');
+                        html = html.replace(regObj, val);
+                      });
+                      box.html(html);
+                      box.show(); errorPanel.hide();
+                    },
+                    'reload': function () {//重新加载
+                      errorPanel.html('<p>加载失败，请<a href="javascript:;">重试</a></p>').removeClass('loading');
+                      errorPanel.find('a').on('click', function () {
+                        getDataAjax();
+                      });
+                    },
+                    'login': function () {//重新登录
+                      var tarHref = encodeURIComponent(location.href);
+                      errorPanel.html('<p>登录超时，请重新<a href="/user/login">登录</a></p>').removeClass('loading');
+                      if (!/^\s*\/\s*$/.test(location.pathname) || !/^\s*$/.test(location.search)) {
+                        errorPanel.find('a').attr('href', '/user/login?backurl=' + tarHref);
+                      }
+                    }
+                  }
+                  var args = Array.prototype.slice.apply(arguments, [1]);
+                  setters[callType].apply(this, args);
+                };
+
+                /**
+                 * 异步读取个人中心数据函数
+                 */
+                function getDataAjax() {
+                  errorPanel.html('').addClass('loading');
+                  $.ajax({
+                    type: 'get',
+                    timeout: 15000,
+                    url: '/index/account',
+                    dataType: 'json',
+                    success: function (returnVal) {
+                      var data = returnVal.data;
+                      if (returnVal.status != 0) {
+                        drawPanel('data', data);
+                      } else if (returnVal.status == 0) {
+                        if (returnVal.info == '登录信息过期，请重新登录') {
+                          drawPanel('login');
+                        } else {
+                          drawPanel('reload');
+                        }
+                      }
+                    },
+                    error: function () {
+                      drawPanel('reload');
+                    }
+                  });
+                }
+                accountLi.one('mouseenter', function () {
+                  getDataAjax();
+                });
+                $('.top').on('click', '.j_txp2p_btn', function () {
+                  zhuge.track('首页_顶部下拉框_点击提现')
+                  var isSvUser = $('.cg_carry_data #cg_isSvUser').val(),
+                    totalCashMoney = $('.cg_carry_data #cg_totalCashMoney').val(),
+                    wxCashMoney = $('.cg_carry_data #cg_wxCashMoney').val(),
+                    svCashMoney = $('.cg_carry_data #cg_svCashMoney').val(),
+                    bankcardVerifyStatus = $('.cg_carry_data #cg_bankcardVerifyStatus').val(),
+                    txDialog_html = '<p class="openTips">账户现金余额：<span class="cg_balance">" + totalCashMoney + " 元<span></p><div class="wxlc_account mb20"><p>网信账户现金余额(元)</p><p>" + wxCashMoney + " 元</p><div class="txbtn_cont"><a class="JS_tx_wx txbtn" href=/account/carry" >提现</a></div></div><div class="wdp2p_account"><p>网贷P2P账户现金余额(元)</p><p>" + svCashMoney + " 元</p><div class="txbtn_cont"><a href="/account/carryP2P" class="txbtn JS_tx_p2p">提现</a></div>';
+                  var $t = $(this);
+                  var promptStr = '';
+                  var moreText = '';
+                  if (isSvUser == 1 && bankcardVerifyStatus == 1) {
+                    Firstp2p.alert({
+                      title: '提现',
+                      boxclass: 'txDialog',
+                      text: txDialog_html,
+                      showButton: false
+                    });
+                  } else {
+                    $.ajax({
+                      url: '/deal/isOpenAccount',
+                      data: '',
+                      type: 'post',
+                      dataType: 'json',
+                      success: function (result) {
+                        if (result.errno === 0) {
+                          if (result.data.status == 1 && result.data.wxStatus == 1) {
+                            Firstp2p.alert({
+                              title: '提现',
+                              boxclass: 'txDialog',
+                              text: txDialog_html,
+                              showButton: false
+                            });
+                          } else if (result.data.status == 1) {
+                            window.location.href = '/account/carryP2P';
+                          } else {
+                            window.location.href = '/account/carry';
+                          }
+                        } else {
+                          Firstp2p.alert({
+                            text: '<div class="tc">' + result.error + '</div>',
+                            ok: function (dialog) {
+                              dialog.close();
+                            }
+                          });
+                        }
+                      },
+                      error: function () {
+
+                      }
+                    });
+                  }
+                });
+              })();
+            </script>
+          </li>
+
+
+          <li><a href='/user/loginout' class='ztx_liIner46782_NavA'>退出</a></li>
+          <li>
+            <div class='ztx_liIner46782_box msg '>
+              <div class='inner'>
+                <a href='/message' class='ztx_liIner46782_NavA'>消息</a>
+                <span class='message_num'><span class='m_lbg'></span><span class='m_rbg'>1</span></span>
+              </div>
+              <div class='cont ztx_liIner46782_msg'>
+                <a href='/message/deal/0_11599094_5'>1&nbsp;条&nbsp; 提现申请 </a>
+              </div>
+            </div>
+          </li>
+          <!-- <li><a class='border_l pl20 ztx_liIner46782_NavA' target='_blank' href='/guide'>新手指南</a></li> -->
+          <li><a class='ztx_liIner46782_NavA border_l pl20' target='_blank' href='/app'>手机客户端</a></li>
+          <li><a class='en_a' href='https://en.ncfwx.com'>EN</a> / <a href='/'>中文</a></li>
+        </ul>
+
+      </div>
+    </div>
+    <div class='clearfix bg_whtie'>
+      <div class='w1100'>
+        <a class='logo new_logo' href='/'></a>
+        <div class='logo_text'>市场有风险，投资需谨慎</div>
+        <div class='my_account'>
+          <div class='drop_t'></div>
+          <div class='drop_b'>
+            <a class='JS_account' href='./index.html'><i class='ac_icon ml15'></i>我的账户<i class='icon_arrow ml5'></i></a>
+            <ul>
+              <li><a href='/account/load' target=''>已投项目</a></li>
+              <li><a href='/account/loan' target=''>回款计划</a></li>
+              <li><a href='/account/money' target=''>资金记录</a></li>
+              <li><a href='/account/coupon' target=''>邀请奖励</a></li>
+              <li><a href='/account/discount' target=''>优惠券</a></li>
+              <li class='nobor'><a href='/gift' target=''>礼券</a></li>
+            </ul>
+          </div>
+        </div>
+        <nav id='top_nav'>
+          <ul>
+            <li class=' '>
+              <a class='nav_a' data-content='首页' href='../../index.html' target=''>
+                首页 </a>
+            </li>
+            <li class=' '>
+              <a class='nav_a' data-content='产品' href='../product/index.html' target=''>
+                产品 </a>
+            </li>
+            <li class=' '>
+              <a class='nav_a' data-content='关于网信' href='/help/id-1' target=''>
+                关于网信 </a>
+            </li>
+            <li class=' '>
+              <a class='nav_a' data-content='企业金融' href='http://qiye.ncfwx.com/user/login' target='_blank'>
+                企业金融 </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <script type='text/javascript'>
+    (function ($) {
+      var config = null;
+
+      $(function () {
+        //启动我的账户逻辑
+        if (USER_INFO == 1) {
+          myAccount();
+        }
+      })
+      //我的账户
+      function myAccount() {
+        var ele = $('.my_account');
+        var ele_msg = $('.j_showMenu2');
+        ele.hover(
+          function () {
+            ele.addClass('select');
+          },
+          function () {
+            ele.removeClass('select');
+          }
+        );
+        ele_msg.hover(
+          function () {
+            ele_msg.addClass('select');
+          },
+          function () {
+            ele_msg.removeClass('select');
+          }
+        )
+      }
+    })(jQuery, 'firstp2p common.js');
+  </script>
+
+  <!-- header.html -->
+  <div class='blank'></div>
+  <div class="w1100 clearfix">
+    <div class='user_nav f_l mr5'>
+      <!-- {include file='web/views/account/left.html'} -->
+      <!--个人中心左侧开始-->
+      <div class="ui_user_nav new_revision_left ">
+        <ul>
+          <li class="first_li change_bg JS_account_li account_li_1">我的账户</li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'index'}user_select{/if} JS_account_li account_li_2">
+            <a href="{url x='index' r='account'}"><i class="ico_gailan"></i>账户总览<span class="new_picture_for"></span></a>
+          </li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'money' }user_select{/if} JS_account_li account_li_3">
+            <a href="{url x='index' r='account/money'}"><i class="ico_jilu"></i>资金记录<span
+                class="new_picture_for"></span></a></li>
+          <!--回款计划、已投项目、合同列表增加农担贷去掉专享逻辑 $is_nongdan 布尔值为真时表示来自农担贷 -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'loan' }user_select{/if} JS_account_li account_li_4">
+            <a href='{if !$is_nongdan}{url x="index" r="account/loan"}{else}{url x="index" r="account/loan?type=2"}{/if}'><i
+                class="ico_huikuan"></i>回款计划<span class="new_picture_for"></span></a></li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'refund' }user_select{/if} JS_account_li account_li_5">
+            <a href="{url x='index' r=" account/refund"}"><i class="ico_huankuan"></i>标的还款计划<span
+                class="new_picture_for"></span></a></li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'refund' }user_select{/if} JS_account_li account_li_6">
+            <a href="{url x='index' r=" account/project_refund"}"><i class="ico_huankuan"></i>转让还款计划<span
+                class="new_picture_for"></span></a></li>
+          <li class="first_title change_bg JS_account_li account_li_7">已投项目</li>
+          <!-- {if !$is_nongdan} -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'load') }user_select{/if} JS_account_li account_li_8">
+            <a href="{url x='index' r='account/load'}">
+              <i class="ico_redp"></i>
+              <!-- {if !$is_firstp2p}
+                  专享
+                {else} -->
+              我的出借
+              <!-- {/if} -->
+              <span class="new_picture_for"></span>
+            </a>
+          </li>
+          <!-- {/if} -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'loadph') }user_select{/if} JS_account_li account_li_8">
+            <a href="{url x='index' r='account/loadph?type=3'}"><i class="ico_redp"></i>网贷<span
+                class="new_picture_for"></span></a></li>
+          <!-- {if $isEnterpriseSite neq 1} -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'finplan') }user_select{/if} JS_account_li account_li_9">
+            <a href="{url x='index' r='account/finplan'}"><i class="ico_redp"></i>智多新<span
+                class="new_picture_for"></span></a></li>
+          <!-- {/if} -->
+          <!-- <li {if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'load?type=2') }class="user_select"{/if}><a href="{url x='index' r="account/load?type=2"}"><i class="ico_redp"></i>交易中心<span class="new_picture_for"></span></a></li> -->
+          <li class="first_title change_bg JS_account_li account_li_10">我的福利</li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'discount') }user_select{/if} JS_account_li account_li_11">
+            <a href="{url x='index' r='account/discount'}"><i class="ico_redp"></i>优惠券<span
+                class="use_amount">0</span><span class="new_picture_for"></span></a></li>
+          <li
+            class="{if $MODULE_NAME eq 'medal' && ($ACTION_NAME eq 'wall' or 'mymedals' or 'detail') }user_select{/if} JS_account_li account_li_12">
+            <a href="{url x='index' r='medal/wall'}"><i class="ico_redp"></i>勋章<span class="new_picture_for"></span></a>
+            <!-- <?php $medalBubbleInfo = showMedalBubbleInfo(); if($medalBubbleInfo && $medalBubbleInfo['isShowMedalBubble']) {echo "<i class='icon_medel'>新手任务" . $medalBubbleInfo['userBeginnerMedalCount'] . "/" . $medalBubbleInfo['beginnerMedalCount'] . "</i>"; } ?> -->
+          </li>
+          <li class="{if $MODULE_NAME eq 'gift'  }user_select{/if} JS_account_li account_li_13"><a href="/gift"><i
+                class="ico_redp"></i><span class="new_unpick_gift">礼券</span><span class="new_picture_for"></span></a></li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'bonus') }user_select{/if} JS_account_li account_li_14">
+            <a href="{url x='index' r='account/bonus'}"><i class="ico_redp"></i>红包
+              <!-- {$new_bonus_title} --><span class="new_picture_for"></span></a></li>
+          <li class="first_title change_bg JS_account_li account_li_15">其他</li>
+          <!--  <li class="{if $MODULE_NAME eq 'user' && ($ACTION_NAME eq 'loanintentionenter' or 'loanIntention' or 'borrowAgreement') }user_select{/if} JS_account_li account_li_16"><a href="/user/loanIntentionEnter"><i class="ico_redp"></i>我想借款</a></li> -->
+          <!-- {if $isSeller } -->
+          <li
+            class="{if $MODULE_NAME eq 'seller' && ($ACTION_NAME eq 'appliedlist') }user_select{/if} JS_account_li account_li_17">
+            <a href="{url x='index' r='seller/appliedlist'}"><i class="ico_redp"></i>商家服务</a></li>
+          <!-- {/if} -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'setup' or $ACTION_NAME eq 'setmessage') }user_select{/if} JS_account_li account_li_18">
+            <a href="{url x='index' r='account/setup'}"><i class="ico_redp"></i>会员设置<span
+                class="new_picture_for"></span></a></li>
+          <!-- {if isCouponValidForBranchSite()} -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'coupon'}user_select{/if} JS_account_li account_li_19">
+            <a href="{url x='index' r='account/coupon'}"><i class="ico_yaoqing"></i>
+              <!-- {if $bonus_coupon_trun_on eq '1'} -->邀请奖励
+              <!-- {else} -->
+              <!-- 邀请返利 -->
+              <!-- {/if} --><span class="new_picture_for"></span></a></li>
+          <!-- {/if} -->
+          <!-- 网信邀请码体系升级：tab添加服务奖励;如果用户有服务能力或是有服务奖励历史记录则显示该模块，如果没有则不显示该模块入口-->
+          <!-- {if $haveServiceEntrance} -->
+          <li class="{if $MODULE_NAME eq 'account' && $ACTION_NAME eq 'coupon'}user_select{/if} account_li_19"><a
+              href="{url x=" index" r="account/serviceaward" }"><i class="ico_yaoqing"></i>服务奖励<span
+                class="new_picture_for"></span></a></li>
+          <!-- {/if} -->
+          <!-- end -->
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'contract' or $ACTION_NAME eq 'contlist' or $ACTION_NAME eq 'contractph') }user_select{/if} JS_account_li account_li_20">
+            <a
+              href='{if !$is_nongdan}{url x="index" r="account/contract"}{else}{url x="index" r="account/contractph"}{/if}'><i
+                class="ico_hetong"></i>合同列表<span class="new_picture_for"></span></a></li>
+          <li
+            class="{if $MODULE_NAME eq 'account' && ($ACTION_NAME eq 'agreement' or $ACTION_NAME eq 'agreementDetail') }user_select{/if} JS_account_li account_li_21">
+            <a href="{url x=" index" r="help/agreement_list" }"><i class="ico_hetong"></i>平台协议<span
+                class="new_picture_for"></span></a></li>
+
+        </ul>
+      </div>
+
+
+      <!--个人中心左侧开始-->
+      <script>
+        //礼券数量调取接口
+        $.ajax({
+          url: 'gift/UnpickCount',
+          type: 'GET',
+          dataType: 'json',
+          success: function (result) {
+            if (result.giftType && result.desc) {
+              $('.new_unpick_gift').html("礼券 (" + result.desc + ")")
+            }
+          },
+          error: function (error) {
+            console.log("礼券gift/UnpickCount接口出错了，Error：" + error)
+          }
+        });
+
+        (function ($) {
+          var url = location.pathname + location.search;
+
+          $(".ui_user_nav li").each(function () {
+            var $t = $(this);
+            if (url == $t.find("a").attr("href")) {
+              $t.find($('.new_picture_for')).show();
+              $t.addClass('user_select').siblings().removeClass('user_select');
+            }
+
+          });
+
+          // //黄金券数量调取异步接口
+          // {if $is_firstp2p}
+          // var consume_type = 1;
+          // {else}
+          // var consume_type = 0;
+          // {/if}
+          // $.ajax({
+          //     url: '/account/discountCount',
+          //     type: 'GET',
+          //     data: {
+          //         consume_type: consume_type,
+          //         page: 1
+          //     },
+          //     dataType: 'json',
+          //     success: function(result) {
+          //         $('.ui_user_nav .use_amount').html(result.count);
+          //     },
+          //     error: function() {
+
+          //     }
+          // });
+        })(jQuery);
+      </script>
+
+      <!-- left.html -->
+    </div>
+    <div class="ui_user_right f_l new_revision_right">
+      <div class="ui_user_right charge_pattern">
+        <div class="p_account_personalset">
+          <link href="../../css/account/p_account_peronalset.css" type="text/css" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="../../css/weebox.css">
+          <script src="//assets.ncfwx.com/201911041358/v3/js/account/setup.js"></script>
+
+          <!-- tooltip -->
+          <!-- <link href="//assets.ncfwx.com/201911041358/v3/js/widget/tooltip/tooltip.v1.css" rel="stylesheet"
+            type="text/css" /> -->
+          <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.core.js" type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.widget.js" type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.position.js"
+            type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/button/button.v1.js" type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/menu/menu.v1.js" type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/tooltip/tooltip.v1.js"
+            type="text/javascript"></script>
+          <script src="//assets.ncfwx.com/201911041358/v3/js/temp/passport.js"></script>
+          <!-- 弹出框 -->
+          <script src="//assets.ncfwx.com/201911041358/v3/js/temp/jquery.bgiframe.js"></script>
+          <div id="riskTs" style="display:none;">
+            <p style="font-size:13px;text-indent:2em;"><b><span
+                  style="color:#f10b00;">风险提示：</span>投资人通过平台进行投资（包括网络借贷及其他产品），可能会因项目、市场、融资人信用等潜在风险造成投资损失，请充分理解并确认可以承受上述风险。平台不对任何投资行为承诺保本保息，不提供增信措施，不在法定途径之外进行宣传推介，不设立资金池或变相自融，严禁从事非法集资，有权拒绝执行任何可能违反《网络借贷信息中介机构业务活动管理暂行办法》或其他相关政策法规的指令或行为。</b>
+            </p>
+            <p style="font-size:13px;text-indent:2em;">
+              本次评估仅作为平台客户适当性服务的依据（下列选项仅为示例），不构成对投资人未来所承担投资风险程度的保证。<b>投资人参与评估即视为确认上述全部提示内容。</b></p>
+
+          </div>
+          <script>
+            var riskTs = $('#riskTs').html();
+            var svMaintainMessage = '海口联合农商银行系统维护中，请稍后再试';
+          </script>
+          <div class="ui-box ui-box3">
+            <div class="h-title">
+              <h2><i></i>会员设置</h2>
+              <div class="h-line"></div>
+              <ul class="sub-nav clearfix">
+                <li class="select"><a href="/account/setup">账户设置</a></li>
+                <li><a href="/account/setmessage">消息设置</a></li>
+              </ul>
+              <div class="r-decs"></div>
+            </div>
+            <div class="r-cont">
+              <script type="text/javascript">
+                $(function () {
+                  //判断用户名是否包含手机号
+                  var userName = "m40655192555";
+                  var userMobile = "15650703513";
+                  var isEnterprise = "0";
+                  var userReg = /^0?m[\d]{11}$/;
+                  //判断用户名那一行是否显示
+                  if (isEnterprise != 1) {
+                    if (userName.indexOf(userMobile) != -1 || userReg.test(userName)) {
+                      $("#isShow").hide();
+                    } else {
+                      $("#isShow").show();
+                    }
+                  }
+                })
+                var gotoValidate = function () {
+                  $('#bankcardValidateForm').submit();
+                }
+              </script>
+              <ul class="security-list">
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>问卷：</label>
+                      <span class="status wqst">评估结果：保守型</span>
+                      <span>评估结果有效期至2019年11月27日</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">帮助您了解自身投资风险承受能力</span>
+                    </p>
+                  </div>
+                  <p class="confirm_donate_btn_yes">
+                    <a id="wj_submit_button" href="javascript:void(0)" class="newBtn">重新评估</a>
+                    <em class="remain_num">今年还可评估4次</em>
+                  </p>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>会员编号：</label><span class="status">已设置</span>
+                      <span>003DHLDQ</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">您在网信的唯一身份标识</span>
+                    </p>
+                  </div>
+                </li>
+                <!-- js判断是否显示用户名 -->
+                <li id="isShow">
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>用户名：</label><span class="status">已设置</span>
+                      <span class="js_name">m40655192555</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">您的网信账号，可用于登录</span>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>登录密码：</label><span class="status">已设置</span><span></span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">为了您的账户安全，建议定期更换</span>
+                    </p>
+                  </div>
+                  <a href="/user/editpwd" class="newBtn newBtn2">修改</a>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>手机号码：</label> <span class="status">已认证</span>
+                      <span class="mobile_num">
+                        156****3513 </span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">用于接收验证码及账户通知，是您重要的身份凭证</span>
+                    </p>
+                  </div>
+                  <a href="/user/editmb" class="newBtn newBtn2">修改</a>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>证件信息：</label>
+                      <span class="status">已认证</span>
+                      <span class="newS"> 纪莹莹</span><span class="newS">15**************26</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">身份认证是充值、投资及提现的必要条件</span>
+                    </p>
+                  </div>
+                </li>
+
+                <!--新增理财和消费卡部分 start-->
+                <li style="height:100px;" id="bank_card_bind">
+                  <i class="sign"></i>
+                  <div>
+
+                    <p class="topLine">
+                      <label>银行卡号：</label>
+                      <span class="status">已设置</span>
+                      <span>中国工商银行 621226*********1330</span>
+                    </p>
+                    <p class="topLine">
+                      <label>消&nbsp;&nbsp;费&nbsp;卡：</label>
+                      <span class="status">未设置</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">为保障资金安全，余额仅可提现至绑定银行卡中</span></p>
+                  </div>
+                  <a href="/life/card_list" class="newBtn newBtn2">
+                    修改
+                  </a>
+
+                </li>
+                <!--新增理财和消费卡部分 end-->
+
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>网贷存管账户：</label>
+                      <span class="status">已开通</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">根据国家法律法规监管要求，出借人需在网贷平台合作的存管银行开设资金存管专用账户</span>
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>电子邮箱：</label>
+                      <span class="status">已设置</span> <span>25********@qq.com</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">用于接收月账单及账户通知，非必需设置</span>
+                    </p>
+                  </div>
+                  <a href="/user/editemail" class="newBtn newBtn2">修改</a>
+                </li>
+                <li>
+                  <i class="yes"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>收货地址：</label>
+                      <span class="status">已设置</span>
+                      <span>北京市 北京市 朝阳区</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">用于邮寄活动奖品或礼品</span>
+                    </p>
+                  </div>
+                  <a href="javascript:void(0)" id="add_submit_btn" class="newBtn newBtn2">修改</a>
+                </li>
+                <li>
+                  <i class="no"></i>
+                  <div>
+                    <p class="topLine">
+                      <label>密保问题：</label>
+                      <span class="status">未设置</span>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">用于进行找回密码等关键操作，保证您账号安全</span>
+                    </p>
+                  </div>
+                  <a href="javascript:void(0)" id="pw_submit_button" data-type="0" class="newBtn">设置</a>
+                </li>
+
+
+                <li>
+                  <i class="yes"></i>
+                  <!--<i class="null" ></i>-->
+                  <div>
+                    <p class="topLine">
+                      <label>授权管理</label>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">您的账户授权详情</span>
+                    </p>
+                  </div>
+                  <a href="/account/privileges" class="newBtn">设置</a>
+                </li>
+
+
+                <li>
+                  <i class="no"></i>
+                  <!--<i class="null" ></i>-->
+                  <div>
+                    <p class="topLine">
+                      <label>电子签名数字证书</label>
+                    </p>
+                    <p class="botLine">
+                      <span class="sec-info gray">用于签署合同以及协议</span>
+                    </p>
+                  </div>
+                  <a href="D:/2.Web/2.纪鹏/4.代码仓库/firstp2p/container/account/cert.html" class="newBtn">设置</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var doneBankOperate_url;
+      </script>
+      <script>
+        $("#editPwd").click(function () {
+          var obj = { address: "", location: "" };
+          gochange(obj);
+        });
+      </script>
+      <!-- 弹窗 -->
+    </div>
+  </div>
+
+  <div class="mb30"></div>
+  <script>
+    (function () {
+      zhuge.track("进入“我的账户”页面")
+    })()
+    // 埋点
+    $('.JS_account_li').click(function () {
+      var content = GetChinese($(this).html())
+      zhuge.track("我的账户_点击快捷入口", {
+        "入口名称": content
+      })
+    });
+    zhugeTrack(".JS_bind_a", "点击绑定银行卡", "", "")
+    zhugeTrack(".j_txp2p", "我的账户_点击提现", "", "")
+    // zhugeTrack(".JS_accountA","首页_顶部下拉框_点击进入我的账户", "", "")
+    function zhugeTrack(place, name, position, content) {
+      $(place).click(function () {
+        // alert(name + ' ---' + id + ' ---' + content )
+        var data = {};
+        data[position] = content;
+        zhuge.track(name, data);
+      })
+    }
+    //只提取汉字  
+    function GetChinese(strValue) {
+      if (strValue != null && strValue != "") {
+        var reg = /[/u4e00-\u9fa5]/g;
+        return strValue.match(reg).join("");
+      }
+      else
+        return "";
+    } 
+  </script>
+  <!--底部开始-->
+<footer class="m_footer"> 
+  <div class="w1100 clearfix">
+    <div class="f_left" style="width:290px;">
+      <a class="logo" href="//www.ncfwx.com"></a>
+      <div class="tel pt25">
+        客服热线
+        <span>（工作时间 8:00-20:00）</span>
+        <h2 class="f18">95782</h2>
+      </div>
+  </div> 
+  <div class="f_center">          
+    <ul class="w147" style="width:136px;">              
+      <li class="pb10">关于我们</li>
+      <li><a href="//www.ncfwx.com/help/id-1" target="_blank">平台介绍</a></li>
+      <li><a href="//www.ncfwx.com/help/id-aboutp2p" target="_blank">平台原理</a></li>
+      <li><a href="//www.ncfwx.com/help/id-866" target="_blank">荣誉奖项</a></li>
+      <li><a href="//www.ncfwx.com/help/id-5" target="_blank">联系我们</a></li>
+      <li><a href="//mp.weixin.qq.com/s/PZAsjL16ZQaOMT2evmA5qg" target="_blank">加入我们</a></li>
+    </ul>
+    <ul class="w147" style="width:136px;">              <li class="pb10">法律声明</li>
+      <li><a href="//www.ncfwx.com/help/id-27" target="_blank">网站声明</a></li>
+      <li><a href="//www.ncfwx.com/help/id-3" target="_blank">隐私政策</a></li>
+      <li><a href="//www.ncfwx.com/help/id-2" target="_blank">免责条款</a></li>
+    </ul>
+    <ul class="w147" style="width:136px;">              <li class="pb10">安全保障</li>
+      <li><a href="//www.ncfwx.com/help/id-772" target="_blank">系统安全</a></li>
+    </ul>
+    <ul class="w147" style="width:136px;">              <li class="pb10">用户帮助</li>
+      <li><a href="//www.ncfwx.com/help/id-776" target="_blank">常见问题</a></li>
+    </ul>
+  </div>
+  <div class="f_right">          
+    <h2 class="color_white f18 pb20">下载客户端</h2>
+    <div class="code fl mr20" style="background:url(//static.firstp2p.com/attachment/201804/19/19/a3e9d8efb9443c6a45004d5cc99f9b03/index.jpg) no-repeat center top;"></div>
+    <a href="https://itunes.apple.com/cn/app/wang-xin-li-cai/id853552412?mt=8" class="iphone_down" target="_blank"><i class="icon_iphone mr10"></i>iphone</a>            <a href="http://www.ncfwx.com/down/apk" class="andriod_down" target="_blank"><i class="icon_andriod mr10"></i>Android</a>        </div>
+  </div>
+  <div class="copyright w1100" style="position:relative;">    
+    <p class="pt20">北京经讯时代科技有限公司</p>
+    <p>
+      © 2019 网信 All rights reserved
+      <span class="s1">
+        &nbsp;京ICP备16034138号-3 | 京ICP证140628号| 
+        <span class="s1"></span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033551" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+          <img src="//static.firstp2p.com/attachment/201701/10/16/a7358ed1e0c3d9c7fd0d13eab0f1350b/index.jpg" style="float:left;" />
+          京公网安备 11010502033551号
+        </a>
+      </span>
+    </p>
+  </div>
+</footer>
+  <!-- <div class='blank'></div>
+  <style type="text/css">
+    .qj-footer {
+      border-top: 1px dotted #e3e3e3;
+      padding-top: 24px;
+      color: #888;
+      text-align: center;
+      background-color: #fff;
+    }
+  </style>
+  <div class="qj-footer">
+    <p>
+      客服热线：400-890-9888 （工作时间 7:00-23:00） 京ICP证130046号
+      <br>北京东方联合投资管理有限公司
+      <br>© 2020 All rights reserved
+    </p>
+  </div>
+  </div> -->
+</body>
+
+</html>
+<!-- header.html -->
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel='stylesheet' href='./cert.css'>
+</head>
+<body>
+    <div class = 'cert'>
+        <div class = 'cert-top'>
+            <div class = 'line'></div>
+            <div class = 'book'>电子签章数字证书</div>
+        </div>
+        <div class = 'run'>授权管理</div>
+        <div class = 'content-border'>
+            <div class = 'square'></div>
+            <div class = 'number'>电子签名数字证书授权</div>
+            <button class = 'ask'>申请证书并授权</button>
+        </div>
+    </div>
+
+    <div class='about'>
+        <div class = 'cert-top'>
+            <div class = 'line'></div>
+            <div class = 'book'>申请证书并授权</div>
+        </div>
+        <div class = 'run-text'>用户信息</div>
+        <div class = 'run-text'>
+            <div>
+                <span>姓名：</span>
+                <span>默默</span>
+            </div>
+            <div>
+                <span>证件类型：</span>
+                <span>身份证</span>
+            </div>
+            <div>
+                <span>证件号码：</span>
+                <span>1231234567456445522</span>
+            </div>
+        </div>
+        <div class='set'>设置签署密码</div>
+        <div class = 'password'>
+            <form method = "post"  class = 'JS_form' action = 'https://www.baidu.com'>
+                <div class='word place'>
+                   <span>注册手机号：</span>
+                   <input class = 'input1' name = 'place' type='text'>
+                </div>
+                <div class='word'>
+                    <span>验证码：</span>
+                    <input type='text'class = 'input2' name = 'ma' placeholder=' 请输入短信验证码'>
+                    <button class = 'ma'>发送验证码</button>
+                 </div>
+                 <div class="word">
+                    <span>证书密码：</span>
+                    <input type = "password" class = 'input3' name = 'book' placeholder=' 请输入6位数字签署密码'>
+                 </div>
+                 <div class="word">
+                    <span>签署密码：</span>
+                    <input type = "password" class = 'input4' name = 'qian' placeholder=' 请再次输入6位数字签署密码'>
+                 </div>
+                <input class = 'power' type = 'submit' value = '申请证书并授权' />
+            </form>
+            <div class = 'me'>
+                <span>我已阅读并同意</span><a  class = 'let' href="https://www.baidu.com">《证书托管协议》</a>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-2.0.0.min.js"></script>
+    <script src='./cert.js'></script>
+</body>
+</html>

@@ -50,7 +50,9 @@ header, section, footer, aside, article, figure, menu { display: block; margin: 
 .ztx_liIner46782_box.disabled:hover .inner { border-bottom: none; }
 .ztx_liIner46782_box:hover .cont { display: block; }
 .ztx_liIner46782_box .inner { height: 35px; line-height: 35px; padding-left: 8px; position: relative; z-index: 10; }
-.ztx_liIner46782_box.act .inner { padding-right: 21px; background: url(../images/common/liInnerBg.png) right -35px no-repeat; }
+.ztx_liIner46782_box.act .inner { padding-right: 21px; 
+	/* background: url(../images/common/liInnerBg.png) right -35px no-repeat; */
+}
 .ztx_liIner46782_box.act:hover .inner { background-position: right 0px; }
 .ztx_liIner46782_box .cont { position: absolute; top: 36px; left: -1px; display: none; background-color: #fff; border: 1px solid #e6e6e6; border-top: none; z-index: 9; font-size: 14px; }
 .ztx_liIner46782_box.act .cont { min-width: 152px; padding: 0px 15px 0px 15px; }
@@ -104,7 +106,9 @@ header, section, footer, aside, article, figure, menu { display: block; margin: 
 .m_header .select a { text-decoration: none; color: #da3715; }
 .m_header .ac_icon { background-position: -148px 0px; width: 17px; height: 23px; margin-right: 8px; vertical-align: middle; margin-left: 17px; }
 .m_header .ac_icon:hover { text-decoration: none; }
-.m_header .select .drop_t, .m_header .select .drop_b, .message_drop .drop_t { background-image: url(../images/common/drop_down.png); background-repeat: no-repeat; }
+.m_header .select .drop_t, .m_header .select .drop_b, .message_drop .drop_t { 
+	/* background-image: url(../images/common/drop_down.png); */
+	background-repeat: no-repeat; }
 .m_header .drop_t { height: 8px; width: 145px; background-position: -656px 4px; float: left; font-size: 0px; line-height: 0px; }
 .m_header .drop_b { background-position: left bottom; background-position: -656px -4px; width: 138px; }
 .m_header .my_account .drop_b a { height: 28px; }
@@ -743,7 +747,7 @@ body{background: #e8e9eb;}
 	display: none;
 	width: 6px;
 	height: 11px;
-	background: url(../images/common/newpicture.jpg) no-repeat;
+	/* background: url(../images/common/newpicture.jpg) no-repeat; */
 	float: right;
     margin-top: 18px;
     margin-right: 25px;
@@ -1070,7 +1074,9 @@ body{background: #e8e9eb;}
 .m_header .ac_icon , .icon_arrow{display: none;}
 .m_header .my_account .drop_b > a {border:1px solid #FC7F0C;border-radius: 14px;width:100px;height:30px;padding:0;line-height: 30px;text-align: center;color:#FC7F0C;font-size: 14px;}
 .m_header .my_account {margin-top: 27px;}
-.my_account ul {background: url(../images/common/drop_down.png) no-repeat left bottom;}
+.my_account ul {
+	/* background: url(../images/common/drop_down.png) no-repeat left bottom; */
+}
 .m_header .select ul {top:13px;left:-17px;position: relative;}
 
 

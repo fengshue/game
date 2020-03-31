@@ -54,7 +54,9 @@ input[type="password"]:focus, input[type="text"]:focus {border-color: #f8684d;bo
 .m_header .select a{text-decoration:none; color:#da3715; }
 .m_header .ac_icon{ background-position:-148px 0px; width:17px; height:23px; margin-right:8px; vertical-align: middle; margin-left:17px;}
 .m_header .ac_icon:hover{text-decoration:none;}
-.m_header .select .drop_t,.m_header .select .drop_b,.message_drop .drop_t{ background-image:url(../images/common/drop_down.png); background-repeat:no-repeat;}
+.m_header .select .drop_t,.m_header .select .drop_b,.message_drop .drop_t{
+	/* background-image:url(../images/common/drop_down.png); */
+	background-repeat:no-repeat;}
 .m_header .drop_t{ height:8px; width:145px;background-position:-656px 4px; float:left; font-size:0px; line-height:0px;}
 .m_header .drop_b{background-position:left bottom;background-position:-656px -4px;width:138px;}
 .m_header .my_account .drop_b a{ height:28px;}
@@ -136,7 +138,7 @@ input[type="password"]:focus, input[type="text"]:focus {border-color: #f8684d;bo
 }
 .ztx_liIner46782_box.act .inner{
 	padding-right: 21px;
-	background:url(../images/common/liInnerBg.png) right -35px no-repeat;
+	/* background:url(../images/common/liInnerBg.png) right -35px no-repeat; */
 }
 .ztx_liIner46782_box.act:hover .inner{
 	background-position: right 0px;

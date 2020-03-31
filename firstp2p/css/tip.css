@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    outline: none; 
+}
+.wrapper{
+    position: fixed;
+    left:50%;
+    transform: translateX(-50%);
+    margin-top:160px;
+    width:30%;
+    height:350px;
+    font-size: 12px;
+    font-family: Arial;
+    border: 1px solid #ccc;
+}
+.title{
+    padding:20px;
+}
+.user-message{
+    border: 1px solid #ccc;
+    border-width: 1px 0px;
+    padding:10px 20px;
+}
+.price{
+    float: right;
+}
+.tip-title{
+    color:#ccc;
+}
+.message1,
+.message2,
+.message3{
+    margin-top: 10px;
+}
+.message1{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.message2{
+    margin-top: 10px;
+}
+.agree{
+    margin-left: 50%;
+    margin-top: 15px;
+    transform: translateX(-50%);
+}
+.content{
+    color:#39f;
+}
+.btn{
+    margin-top: 25px;
+}
+.btn1{
+    margin-left:40px;
+    width:30%;
+    height:35px;
+    background-color:#f30;
+    border: 1px solid transparent; 
+    border-radius: 4px;
+}
+.ask{
+    color:#fff;
+}
+.btn2{
+    width:30%;
+    height:35px;
+    float: right;
+    margin-right: 40px;
+    border: 1px solid transparent; 
+    border: 1px solid #f30;
+    border-radius: 4px;
+}
+
+
+
+
+.success{
+    display: none;
+    position: fixed;
+    left:50%;
+    transform: translateX(-50%);
+    margin-top:160px;
+    width:30%;
+    height:250px;
+    font-size: 12px;
+    font-family: Arial;
+    border: 1px solid #ccc;
+}
+
+.title-right{
+    float: right;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#aaa;
+    cursor:context-menu;
+}
+
+.show{
+    border: 1px solid #ccc;
+    border-width: 1px 0px 0px 0px;
+    padding:10px 20px;
+    text-align: center;
+}
+
+.round{
+    width:40px;
+    height:40px;
+    margin: 5px 0px 0px 50%;
+    transform: translateX(-50%);
+    border: 2px solid #f30;
+    border-radius: 50px 50px;
+}
+.correct{
+    width:25px;
+    height:14px;
+    border: 2px solid #f30;
+    border-width: 0px 0px 2px 2px;
+    transform: rotateZ(-45deg);
+    margin: 7px 0px 0px 7px;
+}
+.show .success-one{
+    font-size: 16px;
+    margin-top: 6%;
+    padding-right: 30px;
+}
+.affirm{
+    width:200px;
+    height:33px;
+    background-color:#f30;
+    margin-top: 4%;
+    border: 1px solid transparent; 
+    border-radius: 4px;
+    color:#fff;
+}
+.ask{
+    float:right;
+}

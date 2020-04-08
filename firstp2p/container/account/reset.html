@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/account/p_account_cert/reset.css">
+</head>
+<body>
+    <div class='about'>
+        <div class='cert-top'>
+          <div class='line'></div>
+          <div class='book'>找回签署密码</div>
+        </div>
+          <form method="post"  action='./end.html'>
+          <!-- <form method="post"  action='#'> -->
+            <div class='word place'>
+              <span>证件号码：</span>
+              <input type='number' class='input1' name='place'  placeholder=" 请填写实名认证时填写的证件号码">
+              <button class="hidden">旧密码输入不正确</button>
+            </div>
+            <div class='word'>
+              <span>注册手机号：</span>
+              <input type='number' class='input2' name='new' placeholder=' 请填写注册手机号以验证身份'>
+            </div>
+            <div class="word">
+              <span>确定密码：</span>
+              <input type="number" class='input3' name='que' placeholder=' 请输入图片中的数字'>
+            </div>
+            <div class='word'>
+                <span>短信验证码：</span>
+                <input type='number' class='input4' name='ma' placeholder=' 请输入短信验证码'>
+                <button class='ma'>发送验证码</button>
+              </div>
+            <input type='submit' class='power over' value='确定' />
+          </form>
+      </div>
+      <script src="../../js/jquery-3.4.1.min.js"></script>
+      <script src='../../js/account/reset.js'></script>
+</body>
+</html>

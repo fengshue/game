@@ -62,9 +62,12 @@
 .p_account_personalset ul.security-list li span.status{color:#000;}
 .p_account_personalset ul.security-list li span.newS { width: auto; margin-right: 20px;color:#000;}
 
-.p_account_personalset ul.security-list li a.newBtn{width: 79px;height: 30px;line-height:32px;text-align:center;border:1px solid #EE4634;background: #EE4634;color:#fff;float: right;display: inline-block;border-radius: 5px;margin-top: 17px;margin-left: 10px;}
-.p_account_personalset ul.security-list li a.newBtn:hover{background: #ff5f4e;}
-.p_account_personalset ul.security-list li a.newBtn:active{background:#ee4634}
+.p_account_personalset ul.security-list li a.newBtn,
+.p_account_personalset ul.security-list li span.newBtn{width: 79px;height: 30px;line-height:32px;text-align:center;border:1px solid #EE4634;background: #EE4634;color:#fff;float: right;display: inline-block;border-radius: 5px;margin-top: 17px;margin-left: 10px;}
+.p_account_personalset ul.security-list li a.newBtn:hover,
+.p_account_personalset ul.security-list li span.newBtn:hover{background: #ff5f4e;}
+.p_account_personalset ul.security-list li a.newBtn:active,
+,.p_account_personalset ul.security-list li span.newBtn:active{background:#ee4634}
 .p_account_personalset ul.security-list li a.newBtn2{background: #fff;border:1px solid #EE4634;color:#EE4634;}
 .p_account_personalset ul.security-list li a.newBtn2:hover{background:#fff;border:1px solid #ff5f4e;color:#ff5f4e;}
 .p_account_personalset ul.security-list li a.newBtn2:active{background:#fff;border:1px solid #ee4634;color:#ee4634;}

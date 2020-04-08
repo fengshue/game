@@ -1,84 +1,46 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Document</title>
-    <link rel='stylesheet' href='../../css/cert.css'>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Document</title>
+  <link rel='stylesheet' href='../../css/account/p_account_cert/cert.css'>
 </head>
-<body>
-    <div class = 'cert'>
-        <div class = 'cert-top'>
-            <div class = 'line'></div>
-            <div class = 'book'>电子签章数字证书</div>
-        </div>
-        <div class = 'run'>授权管理</div>
-        <div class = 'content-border'>
-            <div class = 'square'></div>
-            <div class = 'number'>电子签名数字证书授权</div>
-            <button class = 'ask'>申请证书并授权</button>
-        </div>
-    </div>
 
-    <div class='about'>
-        <div class = 'cert-top'>
-            <div class = 'line'></div>
-            <div class = 'book'>申请证书并授权</div>
-        </div>
-        <div class = 'run-text'>用户信息</div>
-        <div class = 'run-text'>
-            <div>
-                <span>姓名：</span>
-                <span>默默</span>
-            </div>
-            <div>
-                <span>证件类型：</span>
-                <span>身份证</span>
-            </div>
-            <div>
-                <span>证件号码：</span>
-                <span>1231234567456445522</span>
-            </div>
-        </div>
-        <div class='set'>设置签署密码</div>
-        <div class = 'password'>
-            <form method = "post"  class = 'JS_form' action = '#'>
-                <div class='word place'>
-                   <span>注册手机号：</span>
-                   <input class = 'input1' name = 'place' type='number'>
-                </div>
-                <div class='word'>
-                    <span>验证码：</span>
-                    <input type='number'class = 'input2' name = 'ma' placeholder=' 请输入短信验证码'>
-                    <button class = 'ma'>发送验证码</button>
-                    <div class = 'hidden'>验证码不正确</div>
-                 </div>
-                 <div class="word">
-                    <span>证书密码：</span>
-                    <input type = "password" class = 'input3' name = 'book' placeholder=' 请输入6位数字签署密码'>
-                 </div>
-                 <div class="word">
-                    <span>签署密码：</span>
-                    <input type = "password" class = 'input4' name = 'qian' placeholder=' 请再次输入6位数字签署密码'>
-                 </div>
-                <input class = 'power' type = 'submit' value = '申请证书并授权' />
-            </form>
-            <div class = 'me'>
-                <span>我已阅读并同意</span><a  class = 'let' href="https://www.baidu.com">《证书托管协议》</a>
-            </div>
-        </div>
+<body>
+  <div class='cert cert-one'>
+    <div class='cert-top'>
+      <div class='line'></div>
+      <div class='book'>电子签章数字证书</div>
     </div>
-    <div class = 'end'>
-        <div class = 'middle'>
-            <div class='round'>
-                <div class='correct'></div>
-            </div>
-            <span class = 'can'>操作成功</span>
-            <div class = 'and'>申请证书并授权成功</div>
-            <div class = 'jump'>系统将在3s后跳转，如果没有跳转，请点击<a href="D:/2.Web/2.纪鹏/新建文件夹/firstp2p/container/account/index.html">这里</a>跳转</div>
-        </div>
+    <div class='run'>授权管理</div>
+    <div class='content-border'>
+      <div class='square'></div>
+      <div class='number'>电子签名数字证书授权</div>
+      <a href="./about.html"><button class='ask'>申请证书并授权</button></a>
     </div>
-    <script src="../../js/jquery-3.4.1.min.js"></script>
-    <script src='../../js/cert.js'></script>
+  </div>
+
+  <div class = 'cert cert-two'>
+    <div class='cert-top'>
+      <div class='line'></div>
+      <div class='book'>电子签章数字证书</div>
+    </div>
+    <div class='run'>授权管理</div>
+    <div class='content-border'>
+      <div class='square'></div>
+      <div class='number'>电子签名数字证书授权</div>
+      <span class = 'already'>已申请证书并授权</span>
+    </div>
+    <div class='run'>密码管理</div>
+    <div class='content-border'>
+      <div class='square'></div>
+      <div class='number'>签署密码</div>
+      <a href = './reset.html' class = 'already change'>重置</a>
+      <a href = './change.html' class = 'already change'>修改</a>
+    </div>
+  </div>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
+  <script src='../../js/account/cert.js'></script>
 </body>
 </html>

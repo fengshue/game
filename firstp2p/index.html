@@ -2,41 +2,42 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="google-site-verification" content="xovF-ZDqpE-FzhVsIn68WQiPkZS2efwj8y0THL1XAQY" />
-    <title> 网信</title>
-    <link rel="shortcut icon" href="https://assets.ncfwx.com/skins/default/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="./css/cache/index_v3.all.min.css" />
-    <link rel='stylesheet' type='text/css' href='./css/common.css' />
-    <link rel='stylesheet' type='text/css' href='./css/base.css' />
-    <link rel="apple-touch-icon-precomposed" href="https://assets.ncfwx.com/skins/default/images/favicon.png"
-        type="image/x-icon" />
-    <!-- 诸葛统计 -->
-    <script>
-        var appKey = '' == '1' ? '225796fea53a4cedaf56b2d18a3bb2f4' : 'da1ad45dbe1e4583a9db20c0df763d0f';
-        window.zhuge = window.zhuge || []; window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
-        window.zhuge.factory = function (b) {
-            return function () {
-                var a = Array.prototype.slice.call(arguments); a.unshift(b);
-                window.zhuge.push(a); return window.zhuge;
-            }
-        }; for (var i = 0; i < window.zhuge.methods.length; i++) {
-            var key = window.zhuge.methods[i]; window.zhuge[key] = window.zhuge.factory(key);
-        } window.zhuge.load = function (b, x) {
-            if (!document.getElementById("zhuge-js")) {
-                var a = document.createElement("script"); var verDate = new Date();
-                var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
-                a.type = "text/javascript"; a.id = "zhuge-js"; a.async = !0; a.src = 'https://stat.ncfwx.com/zhuge.js?v=' + verStr;
-                a.onerror = function () { window.zhuge.identify = window.zhuge.track = function (ename, props, callback) { if (callback && Object.prototype.toString.call(callback) === '[object Function]') callback(); }; };
-                var c = document.getElementsByTagName("script")[0]; c.parentNode.insertBefore(a, c); window.zhuge._init(b, x)
-            }
-        };
-        window.zhuge.load(appKey, { superProperty: { PlatformType: 'web' }, autoTrack: true });//配置应用的AppKey
-    </script>
-    <!-- 神策统计 -->
-    <script type='text/javascript'>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="google-site-verification" content="xovF-ZDqpE-FzhVsIn68WQiPkZS2efwj8y0THL1XAQY" />
+  <title> 网信</title>
+  <link rel="shortcut icon" href="https://assets.ncfwx.com/skins/default/images/favicon.png" type="image/x-icon" />
+  <!-- <link rel="stylesheet" type="text/css" href="./css/cache/index_v3.all.min.css" /> -->
+  <link rel='stylesheet' type='text/css' href='./css/common.css' />
+  <link rel='stylesheet' type='text/css' href='./css/base.css' />
+  <link rel="apple-touch-icon-precomposed" href="https://assets.ncfwx.com/skins/default/images/favicon.png"
+    type="image/x-icon" />
+  <script src = './js/jquery-3.4.1.min.js'></script>
+  <!-- 诸葛统计 -->
+  <!-- <script>
+    var appKey = '' == '1' ? '225796fea53a4cedaf56b2d18a3bb2f4' : 'da1ad45dbe1e4583a9db20c0df763d0f';
+    window.zhuge = window.zhuge || []; window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
+    window.zhuge.factory = function (b) {
+      return function () {
+        var a = Array.prototype.slice.call(arguments); a.unshift(b);
+        window.zhuge.push(a); return window.zhuge;
+      }
+    }; for (var i = 0; i < window.zhuge.methods.length; i++) {
+      var key = window.zhuge.methods[i]; window.zhuge[key] = window.zhuge.factory(key);
+    } window.zhuge.load = function (b, x) {
+      if (!document.getElementById("zhuge-js")) {
+        var a = document.createElement("script"); var verDate = new Date();
+        var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
+        a.type = "text/javascript"; a.id = "zhuge-js"; a.async = !0; a.src = 'https://stat.ncfwx.com/zhuge.js?v=' + verStr;
+        a.onerror = function () { window.zhuge.identify = window.zhuge.track = function (ename, props, callback) { if (callback && Object.prototype.toString.call(callback) === '[object Function]') callback(); }; };
+        var c = document.getElementsByTagName("script")[0]; c.parentNode.insertBefore(a, c); window.zhuge._init(b, x)
+      }
+    };
+    window.zhuge.load(appKey, { superProperty: { PlatformType: 'web' }, autoTrack: true });//配置应用的AppKey
+  </script> -->
+  <!-- 神策统计 -->
+  <!-- <script type='text/javascript'>
         (function (para) {
             var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
             w['sensorsDataAnalytic201505'] = n;
@@ -54,374 +55,367 @@
                 w[n].para = para;
             }
         })({
-            sdk_url: 'https://static.sensorsdata.cn/sdk/1.9.11/sensorsdata.min.js',
-            heatmap_url: 'https://static.sensorsdata.cn/sdk/1.9.11/heatmap.min.js',
-            name: 'wxsa',
-            web_url: 'https://wangxin.cloud.sensorsdata.cn/?project=production',
-            server_url: 'https://wangxin.cloud.sensorsdata.cn:4006/sa?token=4175318fdc7df657&project=production',
-            heatmap: {},
-            show_log: false
+            // sdk_url: 'https://static.sensorsdata.cn/sdk/1.9.11/sensorsdata.min.js',
+            // heatmap_url: 'https://static.sensorsdata.cn/sdk/1.9.11/heatmap.min.js',
+            // name: 'wxsa',
+            // web_url: 'https://wangxin.cloud.sensorsdata.cn/?project=production',
+            // server_url: 'https://wangxin.cloud.sensorsdata.cn:4006/sa?token=4175318fdc7df657&project=production',
+            // heatmap: {},
+            // show_log: false
         });
         wxsa.registerPage({ PlatformType: 'web' });
         wxsa.quick('autoTrack');
-    </script>
-    <script type="text/javascript">
-        var account_wx = '网信账户';//网信账户类型
-        var account_p2p = '网贷账户';//P2P账户类型
-    </script>
-    <meta name="keywords"
-        content="网信，第一p2p, p2p，网络借贷，网络贷款，借贷 ，网络平台，民间借贷，小额贷款，无抵押贷款，信用贷款，投资理财，借钱，企业贷款，小企业贷款，个人经营贷款，融资" />
-    <meta name="description" content="网信作为金融科技开放平台，为用户提供一站式综合金融信息服务，为金融机构提供线上用户入口，输出金融科技技术，实现互联网金融服务的共享模式。" />
-    <!-- 压缩输出 -->
-    <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v3/cache/common_v3.all.min.js"></script>
-    <!--[if lte IE 9]>
+    </script> -->
+  <script type="text/javascript">
+    var account_wx = '网信账户';//网信账户类型
+    var account_p2p = '网贷账户';//P2P账户类型
+  </script>
+  <meta name="keywords" content="网信，第一p2p, p2p，网络借贷，网络贷款，借贷 ，网络平台，民间借贷，小额贷款，无抵押贷款，信用贷款，投资理财，借钱，企业贷款，小企业贷款，个人经营贷款，融资" />
+  <meta name="description" content="网信作为金融科技开放平台，为用户提供一站式综合金融信息服务，为金融机构提供线上用户入口，输出金融科技技术，实现互联网金融服务的共享模式。" />
+  <!-- 压缩输出 -->
+  <!-- <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v3/cache/common_v3.all.min.js"></script> -->
+  <!--[if lte IE 9]>
 <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v1/js/common/html5shiv.js"></script>
 <![endif]-->
-    <script>
-        var status_switch = 0;
-        var VAR_FILESIZE = 1.5;
-        /*判断是否弹出用户迁移协议*/
-        var user_info_is_dflh = 0   /*判断是否弹出存管协议*/
-        var _wxFreepayment_ = '1';
-        var _isCheckCharge = '1';
-    </script>
-    <script type="text/javascript">
-        // 调接口，查验是否有未支付订单
-        $(function () {
-            if (_isCheckCharge == '0') {
-                return;
-            }
-            if (location.pathname != '/payment/PayIng') {
-                $.getJSON('/payment/PayIngCheck', function (data) {
-                    if (data.code == 0) {//0表示当前有未支付订单
-                        location.href = data.url;
-                    }
-                    if (data.code == -2) {//-2表示暂无未支付订单
-                    }
-                    if (data.code == -1) {//尚未登录，登录后重试，停止轮询
-                    }
-                });
-            }
-        })
-    </script>
-    <script type="text/javascript">
-        var APP_ROOT = '';
-        var send_span = 60000;
-        var USER_INFO = 0;
-        var isEnterprise = 0;
-        var forceChangePwd = 0;
-        var medalBeginner = 0;
-        // 红包币产品名称和单位
-        var new_bonus_title = '红包';
-        var new_bonus_unit = '元';
-        var lz_isWeakPwd = '';
-        if (USER_INFO) {
-            lz_isWeakPwd = '';
-        };
-    </script>
-    <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v3/js/open/p2popen.js"></script>
-    <script type="text/javascript" src="//www.firstp2p.cn/user/Session?code=bbfde2d97df5007b00331d40c696e6c0"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            $('.notice_wap .notice_close').click(function () {
-                $('.notice_wap').hide()
-            });
-        }
-        function noticeUp(obj, top, time) {
-            $(obj).animate({
-                marginTop: top
-            }, time, function () {
-                $(this).css({ marginTop: "0" }).find(":first").appendTo(this);
-                // alert($(this).width())
-            })
-        }
-        $(function () {
-            // 调用 公告滚动函数
-            if ($('.content ul li').length > 1) {
-                setInterval("noticeUp('.notice_wap .content ul','-35px',500)", 3000);
-            }
+  <script>
+    var status_switch = 0;
+    var VAR_FILESIZE = 1.5;
+    /*判断是否弹出用户迁移协议*/
+    var user_info_is_dflh = 0   /*判断是否弹出存管协议*/
+    var _wxFreepayment_ = '1';
+    var _isCheckCharge = '1';
+  </script>
+  <script type="text/javascript">
+    // 调接口，查验是否有未支付订单
+    $(function () {
+      if (_isCheckCharge == '0') {
+        return;
+      }
+      if (location.pathname != '/payment/PayIng') {
+        $.getJSON('/payment/PayIngCheck', function (data) {
+          if (data.code == 0) {//0表示当前有未支付订单
+            location.href = data.url;
+          }
+          if (data.code == -2) {//-2表示暂无未支付订单
+          }
+          if (data.code == -1) {//尚未登录，登录后重试，停止轮询
+          }
         });
-    </script>
+      }
+    })
+  </script>
+  <script type="text/javascript">
+    var APP_ROOT = '';
+    var send_span = 60000;
+    var USER_INFO = 0;
+    var isEnterprise = 0;
+    var forceChangePwd = 0;
+    var medalBeginner = 0;
+    // 红包币产品名称和单位
+    var new_bonus_title = '红包';
+    var new_bonus_unit = '元';
+    var lz_isWeakPwd = '';
+    if (USER_INFO) {
+      lz_isWeakPwd = '';
+    };
+  </script>
+  <!-- <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v3/js/open/p2popen.js"></script>
+  <script type="text/javascript" src="//www.firstp2p.cn/user/Session?code=bbfde2d97df5007b00331d40c696e6c0"></script> -->
+  <script type="text/javascript">
+    window.onload = function () {
+      $('.notice_wap .notice_close').click(function () {
+        $('.notice_wap').hide()
+      });
+    }
+    function noticeUp(obj, top, time) {
+      $(obj).animate({
+        marginTop: top
+      }, time, function () {
+        $(this).css({ marginTop: "0" }).find(":first").appendTo(this);
+        // alert($(this).width())
+      })
+    }
+    $(function () {
+      // 调用 公告滚动函数
+      if ($('.content ul li').length > 1) {
+        setInterval("noticeUp('.notice_wap .content ul','-35px',500)", 3000);
+      }
+    });
+  </script>
 </head>
 
 <body>
-    <!-- 存管协议 -->
-    <!-- end -->
-    <input type="hidden" value="1" class="JS_is_wxlc">
-    <input type="hidden" value="" id="JS_is_firstp2p">
-    <input type="hidden" value="1" class="isNewUser_hidden" id="isNewUser_hidden" data-desc="判断是不是新手" />
-    <style>
-        .notice_wap {
-            background-color: #f7cc9f;
-            height: 35px;
-            line-height: 35px;
-            position: relative;
-            border: 1px solid #f7cc9f;
-            overflow: hidden;
-        }
+  <!-- 存管协议 -->
+  <!-- end -->
+  <input type="hidden" value="1" class="JS_is_wxlc">
+  <input type="hidden" value="" id="JS_is_firstp2p">
+  <input type="hidden" value="1" class="isNewUser_hidden" id="isNewUser_hidden" data-desc="判断是不是新手" />
+  <style>
+    .notice_wap {
+      background-color: #f7cc9f;
+      height: 35px;
+      line-height: 35px;
+      position: relative;
+      border: 1px solid #f7cc9f;
+      overflow: hidden;
+    }
 
-        .notice_wap .content {
-            width: 1200px;
-            margin: 0 auto;
-        }
+    .notice_wap .content {
+      width: 1200px;
+      margin: 0 auto;
+    }
 
-        .notice_wap .notice_close {
-            position: absolute;
-            right: 20px;
-            top: 4px;
-            width: 20px;
-        }
+    .notice_wap .notice_close {
+      position: absolute;
+      right: 20px;
+      top: 4px;
+      width: 20px;
+    }
 
-        .notice_wap .notice_close img {
-            width: 20px;
-        }
+    .notice_wap .notice_close img {
+      width: 20px;
+    }
 
-        .notice_wap a {
-            display: block;
-        }
-    </style>
-    <header class="m_header clearfix">
-        <div class="top">
-            <div class="w1100">
-                <div class="fl color_red public">
-                    <style>
-                        .p_new_user_page .bannerBox {
-                            background: url(//static.firstp2p.com/attachment/201901/10/20/828e68c7bccabbccb9895047bb6ae2d2/index.jpg) no-repeat center top;
-                        }
+    .notice_wap a {
+      display: block;
+    }
+  </style>
+  <header class="m_header clearfix">
+    <div class="top">
+      <div class="w1100">
+        <div class="fl color_red public">
+          <style>
+            /* .p_new_user_page .bannerBox {
+              background: url(//static.firstp2p.com/attachment/201901/10/20/828e68c7bccabbccb9895047bb6ae2d2/index.jpg) no-repeat center top;
+            }
 
-                        .p_new_user_page ._bannerBox {
-                            background: url(//static.firstp2p.com/attachment/201901/10/20/db4e53ec724d78b7b2499df33ac74cf2/index.jpg) no-repeat center top;
-                            height: 560px
-                        }
+            .p_new_user_page ._bannerBox {
+              background: url(//static.firstp2p.com/attachment/201901/10/20/db4e53ec724d78b7b2499df33ac74cf2/index.jpg) no-repeat center top;
+              height: 560px
+            }
 
-                        .bannerBox .iframe_register {
-                            top: 12px;
-                        }
-                    </style>
-                    <style>
-                        .p_new_user_page .lingqu_btn a {
-                            display: block;
-                            width: 509px;
-                            height: 104px;
-                            background: url(//static.firstp2p.com/attachment/201807/05/17/e99e35c1e3c34dd61fd388fba883522a/index.jpg.jpg) no-repeat;
-                            margin: 20px auto 60px;
-                        }
-                    </style>
-                </div>
-                <ul class="fr nav">
-                    <li>您好，请<a class="JS_login" href="/user/login">登录</a></li>
-                    <li><a class="color_green" href="/user/register">免费注册</a></li>
-                    <!--     <li><a class="border_l pl20" target="_blank" href="/guide">新手指南</a></li>
+            .bannerBox .iframe_register {
+              top: 12px;
+            } */
+          </style>
+          <style>
+            .p_new_user_page .lingqu_btn a {
+              display: block;
+              width: 509px;
+              height: 104px;
+              /* background: url(//static.firstp2p.com/attachment/201807/05/17/e99e35c1e3c34dd61fd388fba883522a/index.jpg.jpg) no-repeat; */
+              margin: 20px auto 60px;
+            }
+          </style>
+        </div>
+        <ul class="fr nav">
+          <li>您好，请<a class="JS_login" href="/user/login">登录</a></li>
+          <li><a class="color_green" href="/user/register">免费注册</a></li>
+          <!--     <li><a class="border_l pl20" target="_blank" href="/guide">新手指南</a></li>
      -->
-                    <li><a class="border_l pl20" href="/app">手机客户端</a></li>
-                    <li><a class="en_a" href='https://en.ncfwx.com'>EN</a> / <a href="/">中文</a></li>
-                </ul>
+          <li><a class="border_l pl20" href="/app">手机客户端</a></li>
+          <li><a class="en_a" href='https://en.ncfwx.com'>EN</a> / <a href="/">中文</a></li>
+        </ul>
 
-            </div>
-        </div>
-        <div class="clearfix bg_whtie">
-            <div class="w1100">
-                <a class="logo new_logo" href="/"></a>
-                <div class="logo_text">市场有风险，投资需谨慎</div>
-                <div class="my_account">
-                    <div class="drop_t"></div>
-                    <div class="drop_b">
-                        <a class="JS_account" href="./container/account/index.html"><i class="ac_icon ml15"></i>我的账户<i
-                                class="icon_arrow ml5"></i></a>
-                        <ul>
-                            <li><a href="/account/load" target="">已投项目</a></li>
-                            <li><a href="/account/loan" target="">回款计划</a></li>
-                            <li><a href="/account/money" target="">资金记录</a></li>
-                            <li><a href="/account/coupon" target="">邀请奖励</a></li>
-                            <li><a href="/account/discount" target="">优惠券</a></li>
-                            <li class="nobor"><a href="/gift" target="">礼券</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <nav id="top_nav">
-                    <ul>
-                        <li class=" select">
-                            <a class="nav_a" data-content="首页" href="/" target="">
-                                首页 </a>
-                        </li>
-                        <li class=" ">
-                            <a class="nav_a" data-content="产品" href="/product" target="">
-                                产品 </a>
-                        </li>
-                        <li class=" ">
-                            <a class="nav_a" data-content="关于网信" href="/help/id-1" target="">
-                                关于网信 </a>
-                        </li>
-                        <li class=" ">
-                            <a class="nav_a" data-content="企业金融" href="http://qiye.ncfwx.com/user/login"
-                                target="_blank">
-                                企业金融 </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!--面包屑导航开始-->
-    <!--面包屑导航结束-->
-    <script src="//assets.ncfwx.com/201911041358/v3/js/temp/jquery.weebox.1.2.js" type="text/javascript"></script>
-    <script src="//assets.ncfwx.com/201911041358/v3/js/temp/passport.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/home/indexv4.all.min.js"></script>
-    <link href="//assets.ncfwx.com/201911041358/v3/js/temp/weebox.1.3.css" type="text/css" rel="stylesheet">
-    <link href="//assets.ncfwx.com/201911041358/v4/css/index/mfocus.css" type="text/css" rel="stylesheet">
-    <link href="./css/home/home.css" type="text/css" rel="stylesheet">
-    <script src="//assets.ncfwx.com/201911041358/v3/js/common/medal_lightinglay.js" type="text/javascript"></script>
-    <div class="p_index">
-        <section>
-            <script type="text/javascript">
-                var aImg = ['//static.firstp2p.com/attachment/201812/20/12/57c590617ed0595b50b7728e1597b4d3/index.jpg'];
-                var aHref = ['https://www.ncfwx.com/help/id-1'];
-            </script>
-            <div class="banner_slide">
-                <ul class="banner_view">
-                    <li></li>
-                </ul>
-                <div class="slide_pager">
-                    <div class="slide_pager_l"></div>
-                    <div class="slide_pager_r">
-                        <ul>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="main">
-            <style>
-                .infor_list li {
-                    width: 380px
-                }
-            </style>
-            <div class="infor_list">
-                <ul class="clearfix">
-                    <li class="bg1">
-                        <div>
-                            <h5>实力背景</h5>
-                            <h6>完成C轮融资</h6>
-                        </div>
-                    </li>
-                    <li class="bg2">
-                        <div>
-                            <h5>BSI认证</h5>
-                            <h6>获得质量管理和信息安全认证</h6>
-                        </div>
-                    </li>
-                    <li class="bg3">
-                        <div>
-                            <h5>信息系统安全</h5>
-                            <h6>公安部等保三级</h6>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="station_intro clearfix"> <a href="https://www.ncfwx.com/help/id-1" class="fr"
-                    target="_blank">更多</a>
-                <h5>网信平台于 2013 年 7 月上线，作为金融科技开放平台，输出金融科技技术，为金融机构及非金融机构提供线上用户入口，为用户提供一站式综合金融信息服务，实现互联网金融服务的共享模式。</h5>
-            </div>
-        </section>
+      </div>
     </div>
-    <div class="p_index p_index_bg">
-        <section class="main">
-            <!--banner start-->
-            <div class="group-summary">
-                <div class="title">
-                    <img src="//assets.ncfwx.com/201911041358/v4/images/index/56@2x.png">
-                </div>
-                <div class="history">
-                    <div id="year">
-                        <div>
-                            <ul class="fn-clear">
-                                <li rel="0" data-select="0"><i class="icon icon-finyear icon-f2">2</i><i
-                                        class="icon icon-finyear icon-f0">0</i><i
-                                        class="icon icon-finyear icon-f1">1</i><i
-                                        class="icon icon-finyear icon-f7">7</i></li>
-                                <li rel="1" data-select="2" class="sibling"><i class="icon icon-finyear icon-f2">2</i><i
-                                        class="icon icon-finyear icon-f0">0</i><i
-                                        class="icon icon-finyear icon-f1">1</i><i
-                                        class="icon icon-finyear icon-f6">6</i></li>
-                                <li rel="2" data-select="0" class="cur"><i class="icon icon-finyear icon-f2">2</i><i
-                                        class="icon icon-finyear icon-f0">0</i><i
-                                        class="icon icon-finyear icon-f1">1</i><i
-                                        class="icon icon-finyear icon-f5">5</i></li>
-                                <li rel="3" data-select="0" class="sibling"><i class="icon icon-finyear icon-f2">2</i><i
-                                        class="icon icon-finyear icon-f0">0</i><i
-                                        class="icon icon-finyear icon-f1">1</i><i
-                                        class="icon icon-finyear icon-f4">4</i></li>
-                                <li rel="4" data-select="3"><i class="icon icon-finyear icon-f2">2</i><i
-                                        class="icon icon-finyear icon-f0">0</i><i
-                                        class="icon icon-finyear icon-f1">1</i><i
-                                        class="icon icon-finyear icon-f3">3</i></li>
-                            </ul>
-                        </div>
-                        <a href="https://www.ncfwx.com/#" class="prev" style="display:none;"></a> <a
-                            href="https://www.ncfwx.com/#" class="next" style="display:none;"></a>
-                    </div>
-                    <div id="pic">
-                        <ul class="fn-clear">
-                            <li class="sibling2"> <img
-                                    src="//static.firstp2p.com/attachment/201804/17/20/c3185cf87fecf7f27f0bdb848f741e53/index.jpg" />
-                            </li>
-                            <li class="sibling"><img
-                                    src="//static.firstp2p.com/attachment/201804/17/20/04ea5e2878f6c051df834eb340e080ac/index.jpg" />
-                            </li>
-                            <li class="cur"> <img
-                                    src="//static.firstp2p.com/attachment/201804/17/20/c976b753955978f4833ecb75f6af1f00/index.jpg" />
-                            </li>
-                            <li class="sibling"><img
-                                    src="//static.firstp2p.com/attachment/201804/17/20/892c4c4c0a9226f8818c3416ca6ea1c5/index.jpg" />
-                            </li>
-                            <li class=""><img
-                                    src="//static.firstp2p.com/attachment/201804/17/20/68636c82f65d23374375fb1083f82542/index.jpg" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="content">
-                        <div data-select="0" class="infor_descrip">
-                            <!--2017-->
-                            <dl class="clearfix">
-                                <dt>06 <span>月</span></dt>
-                                <dd>品牌升级为“网信”，平台定位升级为“金融科技开放平台”，为个人、企业、机构提供互联网信息及技术服务</dd>
-                            </dl>
-                        </div>
-                        <div class="infor_descrip">
-                            <!--2016-->
-                            <dl class="clearfix">
-                                <dt>03 <span>月</span></dt>
-                                <dd>网信集团被评选为中国互联网金融协会常务理事单位</dd>
-                            </dl>
-                        </div>
-                        <div class="infor_descrip">
-                            <!--2015-->
-                            <dl class="clearfix">
-                                <dt>08 <span>月</span></dt>
-                                <dd>首批通过BSI（英国标准协会）颁发的 ISO90001:2008质量管理体系认证和 ISO27001:2013信息安全认证的企业</dd>
-                            </dl>
-                        </div>
-                        <div class="infor_descrip">
-                            <!--2014-->
-                            <dl class="clearfix">
-                                <dt>09 <span>月</span></dt>
-                                <dd>平台交易额突破20亿元，提前完成全年计划</dd>
-                            </dl>
-                        </div>
-                        <div class="infor_descrip">
-                            <!--2013-->
-                            <dl class="clearfix">
-                                <dt>07 <span>月</span></dt>
-                                <dd>平台正式上线</dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:10px;"><a href="/help/id-973" class="dev_see_more"
-                        target="_blank">查看更多</a></div>
-            </div>
+    <div class="clearfix bg_whtie">
+      <div class="w1100">
+        <a class="logo new_logo" href="/"></a>
+        <div class="logo_text">市场有风险，投资需谨慎</div>
+        <div class="my_account">
+          <div class="drop_t"></div>
+          <div class="drop_b">
+            <a class="JS_account" href="./container/account/index.html"><i class="ac_icon ml15"></i>我的账户<i
+                class="icon_arrow ml5"></i></a>
+            <ul>
+              <li><a href="/account/load" target="">已投项目</a></li>
+              <li><a href="/account/loan" target="">回款计划</a></li>
+              <li><a href="/account/money" target="">资金记录</a></li>
+              <li><a href="/account/coupon" target="">邀请奖励</a></li>
+              <li><a href="/account/discount" target="">优惠券</a></li>
+              <li class="nobor"><a href="/gift" target="">礼券</a></li>
+            </ul>
+          </div>
+        </div>
+        <nav id="top_nav">
+          <ul>
+            <li class=" select">
+              <a class="nav_a" data-content="首页" href="/" target="">
+                首页 </a>
+            </li>
+            <li class=" ">
+              <a class="nav_a" data-content="产品" href="/product" target="">
+                产品 </a>
+            </li>
+            <li class=" ">
+              <a class="nav_a" data-content="关于网信" href="/help/id-1" target="">
+                关于网信 </a>
+            </li>
+            <li class=" ">
+              <a class="nav_a" data-content="企业金融" href="http://qiye.ncfwx.com/user/login" target="_blank">
+                企业金融 </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <!-- <div class="p_index p_index_bg2">
+  </header>
+  <!--面包屑导航开始-->
+  <!--面包屑导航结束-->
+  <!-- <script src="//assets.ncfwx.com/201911041358/v3/js/temp/jquery.weebox.1.2.js" type="text/javascript"></script>
+  <script src="//assets.ncfwx.com/201911041358/v3/js/temp/passport.js" type="text/javascript"></script>
+  <script type="text/javascript" src="./js/home/indexv4.all.min.js"></script>
+  <link href="//assets.ncfwx.com/201911041358/v3/js/temp/weebox.1.3.css" type="text/css" rel="stylesheet">
+  <link href="//assets.ncfwx.com/201911041358/v4/css/index/mfocus.css" type="text/css" rel="stylesheet">
+  <link href="./css/home/home.css" type="text/css" rel="stylesheet">
+  <script src="//assets.ncfwx.com/201911041358/v3/js/common/medal_lightinglay.js" type="text/javascript"></script> -->
+  <div class="p_index">
+    <section>
+      <!-- <script type="text/javascript">
+        var aImg = ['//static.firstp2p.com/attachment/201812/20/12/57c590617ed0595b50b7728e1597b4d3/index.jpg'];
+        var aHref = ['https://www.ncfwx.com/help/id-1'];
+      </script> -->
+      <div class="banner_slide">
+        <ul class="banner_view">
+          <li></li>
+        </ul>
+        <div class="slide_pager">
+          <div class="slide_pager_l"></div>
+          <div class="slide_pager_r">
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="main">
+      <style>
+        .infor_list li {
+          width: 380px
+        }
+      </style>
+      <div class="infor_list">
+        <ul class="clearfix">
+          <li class="bg1">
+            <div>
+              <h5>实力背景</h5>
+              <h6>完成C轮融资</h6>
+            </div>
+          </li>
+          <li class="bg2">
+            <div>
+              <h5>BSI认证</h5>
+              <h6>获得质量管理和信息安全认证</h6>
+            </div>
+          </li>
+          <li class="bg3">
+            <div>
+              <h5>信息系统安全</h5>
+              <h6>公安部等保三级</h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="station_intro clearfix"> <a href="https://www.ncfwx.com/help/id-1" class="fr" target="_blank">更多</a>
+        <h5>网信平台于 2013 年 7 月上线，作为金融科技开放平台，输出金融科技技术，为金融机构及非金融机构提供线上用户入口，为用户提供一站式综合金融信息服务，实现互联网金融服务的共享模式。</h5>
+      </div>
+    </section>
+  </div>
+  <div class="p_index p_index_bg">
+    <section class="main">
+      <!--banner start-->
+      <div class="group-summary">
+        <div class="title">
+          <img src="//assets.ncfwx.com/201911041358/v4/images/index/56@2x.png">
+        </div>
+        <div class="history">
+          <div id="year">
+            <div>
+              <ul class="fn-clear">
+                <li rel="0" data-select="0"><i class="icon icon-finyear icon-f2">2</i><i
+                    class="icon icon-finyear icon-f0">0</i><i class="icon icon-finyear icon-f1">1</i><i
+                    class="icon icon-finyear icon-f7">7</i></li>
+                <li rel="1" data-select="2" class="sibling"><i class="icon icon-finyear icon-f2">2</i><i
+                    class="icon icon-finyear icon-f0">0</i><i class="icon icon-finyear icon-f1">1</i><i
+                    class="icon icon-finyear icon-f6">6</i></li>
+                <li rel="2" data-select="0" class="cur"><i class="icon icon-finyear icon-f2">2</i><i
+                    class="icon icon-finyear icon-f0">0</i><i class="icon icon-finyear icon-f1">1</i><i
+                    class="icon icon-finyear icon-f5">5</i></li>
+                <li rel="3" data-select="0" class="sibling"><i class="icon icon-finyear icon-f2">2</i><i
+                    class="icon icon-finyear icon-f0">0</i><i class="icon icon-finyear icon-f1">1</i><i
+                    class="icon icon-finyear icon-f4">4</i></li>
+                <li rel="4" data-select="3"><i class="icon icon-finyear icon-f2">2</i><i
+                    class="icon icon-finyear icon-f0">0</i><i class="icon icon-finyear icon-f1">1</i><i
+                    class="icon icon-finyear icon-f3">3</i></li>
+              </ul>
+            </div>
+            <a href="https://www.ncfwx.com/#" class="prev" style="display:none;"></a> <a href="https://www.ncfwx.com/#"
+              class="next" style="display:none;"></a>
+          </div>
+          <div id="pic">
+            <ul class="fn-clear">
+              <li class="sibling2"> 
+                <img
+                  src="https://static.firstp2p.com/attachment/201804/17/20/c3185cf87fecf7f27f0bdb848f741e53/index.jpg" />
+              </li>
+              <li class="sibling"><img
+                  src="https://static.firstp2p.com/attachment/201804/17/20/04ea5e2878f6c051df834eb340e080ac/index.jpg" />
+              </li>
+              <li class="cur"> <img
+                  src="https://static.firstp2p.com/attachment/201804/17/20/c976b753955978f4833ecb75f6af1f00/index.jpg" />
+              </li>
+              <li class="sibling"><img
+                  src="https://static.firstp2p.com/attachment/201804/17/20/892c4c4c0a9226f8818c3416ca6ea1c5/index.jpg" />
+              </li>
+              <li class=""><img
+                  src="https://static.firstp2p.com/attachment/201804/17/20/68636c82f65d23374375fb1083f82542/index.jpg" />
+              </li>
+            </ul>
+          </div>
+          <div id="content">
+            <div data-select="0" class="infor_descrip">
+              <!--2017-->
+              <dl class="clearfix">
+                <dt>06 <span>月</span></dt>
+                <dd>品牌升级为“网信”，平台定位升级为“金融科技开放平台”，为个人、企业、机构提供互联网信息及技术服务</dd>
+              </dl>
+            </div>
+            <div class="infor_descrip">
+              <!--2016-->
+              <dl class="clearfix">
+                <dt>03 <span>月</span></dt>
+                <dd>网信集团被评选为中国互联网金融协会常务理事单位</dd>
+              </dl>
+            </div>
+            <div class="infor_descrip">
+              <!--2015-->
+              <dl class="clearfix">
+                <dt>08 <span>月</span></dt>
+                <dd>首批通过BSI（英国标准协会）颁发的 ISO90001:2008质量管理体系认证和 ISO27001:2013信息安全认证的企业</dd>
+              </dl>
+            </div>
+            <div class="infor_descrip">
+              <!--2014-->
+              <dl class="clearfix">
+                <dt>09 <span>月</span></dt>
+                <dd>平台交易额突破20亿元，提前完成全年计划</dd>
+              </dl>
+            </div>
+            <div class="infor_descrip">
+              <!--2013-->
+              <dl class="clearfix">
+                <dt>07 <span>月</span></dt>
+                <dd>平台正式上线</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:10px;"><a href="/help/id-973" class="dev_see_more"
+            target="_blank">查看更多</a></div>
+      </div>
+  </div>
+  <!-- <div class="p_index p_index_bg2">
 <section class="main">
     <div class="clearfix">
      
@@ -429,257 +423,253 @@
     <h6></h6>
 </section>
 </div> -->
-    <div class="p_index">
-        <section class="main">
-            <div class="main_part1">
-                <span class="fr">已有账号，<em><a href="https://www.ncfwx.com/user/login">立即登录</a></em></span>
-                <div class="infor" style = 'margin-top: 100px'>
-                    <h3>注册成功即获</h3>
-                    <h4>新手大礼包</h4>
-                    <div class="xinzai"></div>
+  <div class="p_index">
+    <section class="main">
+      <div class="main_part1">
+        <span class="fr">已有账号，<em><a href="https://www.ncfwx.com/user/login">立即登录</a></em></span>
+        <div class="infor" style='margin-top: 100px'>
+          <h3>注册成功即获</h3>
+          <h4>新手大礼包</h4>
+          <div class="xinzai"></div>
+        </div>
+        <div class="invest_btn"><a href="https://www.ncfwx.com/user/register">注册立享新手大礼包</a></div>
+      </div>
+      <div class="main_part2" id="tabs">
+        <ul class="nav_menu clearfix">
+          <div class="j_index_tab_container">
+            <li class="current j_index_tab">智多新</li>
+          </div>
+          <div class="j_index_tab_container"></div>
+          <div class="j_index_tab_container"></div>
+        </ul>
+        <hr style="width:750px;margin:0 auto;height:1px;border:none;border-top:1px solid #FC7F0C;">
+
+        <div class="ui_product_tab ui_product_tab_dt mb30 mt20">
+          <div class="tabbd">
+            <div class="con">
+              <div class="conbd">
+                <div class="p2p_product p5">
+                  <div class="clearfix bg_whtie">
+                    <div class="con_l">
+                      <h3 class="f16">
+                        <a href="/finplan/bid/1501" title="智多新15天" alt="智多新15天" class="deal_tag_name">智多新15天</a>
+                      </h3>
+                      <div class="fl w360">
+                        <p><span>往期年化：</span>
+                          <span class="f20"><i>5.40%~</i><i>5.70%</i></span>
+                          <p>
+                            <span>最低加入金额：</span>
+                            500.00元
+                          </p>
+                      </div>
+                      <div class="fl w265 progress_rate" total="1000" has="111.0000">
+                        <p><span>计息方式：</span><i>匹配后按日计算</i></p>
+                        <!-- 登录后不显示 -->
+                        <p><span>当前加入：</span>9543人</p>
+                      </div>
+                      <div class="fl w265 progress_rate">
+                        <p><span>期限：</span>
+                          <em style="color:#474646;font-weight:normal">15</em>天可申请转让/退出
+                        </p>
+                      </div>
+                    </div>
+                    <div class="product_btn">
+                      <a href="/finplan/bid/1501" class="btn_touzi" target="_blank">加入</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="invest_btn"><a href="https://www.ncfwx.com/user/register">注册立享新手大礼包</a></div>
+                <div class="p2p_product p5">
+                  <div class="clearfix bg_whtie">
+                    <div class="con_l">
+                      <h3 class="f16">
+                        <a href="/finplan/bid/1502" title="智多新30天" alt="智多新30天" class="deal_tag_name">智多新30天</a>
+                      </h3>
+                      <div class="fl w360">
+                        <p><span>往期年化：</span>
+                          <span class="f20"><i>5.80%~</i><i>6.00%</i></span>
+                          <p>
+                            <span>最低加入金额：</span>
+                            500.00元
+                          </p>
+                      </div>
+                      <div class="fl w265 progress_rate" total="1000" has="111.0000">
+                        <p><span>计息方式：</span><i>匹配后按日计算</i></p>
+                        <!-- 登录后不显示 -->
+                        <p><span>当前加入：</span>1918人</p>
+                      </div>
+                      <div class="fl w265 progress_rate">
+                        <p><span>期限：</span>
+                          <em style="color:#474646;font-weight:normal">30</em>天可申请转让/退出
+                        </p>
+                      </div>
+                    </div>
+                    <div class="product_btn">
+                      <a href="/finplan/bid/1502" class="btn_touzi" target="_blank">加入</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- //循环 -->
+              </div>
             </div>
-            <div class="main_part2" id="tabs">
-                <ul class="nav_menu clearfix">
-                    <div class="j_index_tab_container">
-                        <li class="current j_index_tab">智多新</li>
-                    </div>
-                    <div class="j_index_tab_container"></div>
-                    <div class="j_index_tab_container"></div>
-                </ul>
-                <hr style="width:750px;margin:0 auto;height:1px;border:none;border-top:1px solid #FC7F0C;">
+          </div>
+        </div>
 
-                <div class="ui_product_tab ui_product_tab_dt mb30 mt20">
-                    <div class="tabbd">
-                        <div class="con">
-                            <div class="conbd">
-                                <div class="p2p_product p5">
-                                    <div class="clearfix bg_whtie">
-                                        <div class="con_l">
-                                            <h3 class="f16">
-                                                <a href="/finplan/bid/1501" title="智多新15天" alt="智多新15天"
-                                                    class="deal_tag_name">智多新15天</a>
-                                            </h3>
-                                            <div class="fl w360">
-                                                <p><span>往期年化：</span>
-                                                    <span class="f20"><i>5.40%~</i><i>5.70%</i></span>
-                                                    <p>
-                                                        <span>最低加入金额：</span>
-                                                        500.00元
-                                                    </p>
-                                            </div>
-                                            <div class="fl w265 progress_rate" total="1000" has="111.0000">
-                                                <p><span>计息方式：</span><i>匹配后按日计算</i></p>
-                                                <!-- 登录后不显示 -->
-                                                <p><span>当前加入：</span>9543人</p>
-                                            </div>
-                                            <div class="fl w265 progress_rate">
-                                                <p><span>期限：</span>
-                                                    <em style="color:#474646;font-weight:normal">15</em>天可申请转让/退出
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="product_btn">
-                                            <a href="/finplan/bid/1501" class="btn_touzi" target="_blank">加入</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p2p_product p5">
-                                    <div class="clearfix bg_whtie">
-                                        <div class="con_l">
-                                            <h3 class="f16">
-                                                <a href="/finplan/bid/1502" title="智多新30天" alt="智多新30天"
-                                                    class="deal_tag_name">智多新30天</a>
-                                            </h3>
-                                            <div class="fl w360">
-                                                <p><span>往期年化：</span>
-                                                    <span class="f20"><i>5.80%~</i><i>6.00%</i></span>
-                                                    <p>
-                                                        <span>最低加入金额：</span>
-                                                        500.00元
-                                                    </p>
-                                            </div>
-                                            <div class="fl w265 progress_rate" total="1000" has="111.0000">
-                                                <p><span>计息方式：</span><i>匹配后按日计算</i></p>
-                                                <!-- 登录后不显示 -->
-                                                <p><span>当前加入：</span>1918人</p>
-                                            </div>
-                                            <div class="fl w265 progress_rate">
-                                                <p><span>期限：</span>
-                                                    <em style="color:#474646;font-weight:normal">30</em>天可申请转让/退出
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="product_btn">
-                                            <a href="/finplan/bid/1502" class="btn_touzi" target="_blank">加入</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- //循环 -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--zx start-->
-                <!--zx end-->
-                <!--p2p start-->
-                <!--p2p end-->
-            </div>
-        </section>
-    </div>
-    <div class="p_index p_index_bg3">
-        <section class="main">
-            <div class="mb30 partner clearfix" id="scroll">
-                <div class="title">
-                    <img src="//assets.ncfwx.com/201911041358/v4/images/index/55@2x.png" />
-                </div>
-                <div class="clearfix">
-                    <div class="left_but scroll_up"></div>
-                    <div class="scrollDiv">
-                        <ul>
-                            <li>
-                                <a index="0" href="http://www.ucfgroup.cn/" target="_blank" class="logo_h"><span
-                                        style="background:url(./images/home/index1.jpg) no-repeat center;"></span></a>
-                                <a index="1" href="http://www.ucf.cn/index.shtml" target="_blank" class="logo_h"><span
-                                        style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5247588ab5dc41e082e68ea4ff7e4bb4/index.jpg) no-repeat center;"></span></a>
-                                <a index="2" href="http://www.ucfpay.com/" target="_blank" class="logo_h"><span
-                                        style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5e56de6758e48f79899a6ced6039ce0b/index.jpg) no-repeat center;"></span></a>
-                                <a index="3" href="http://www.unitedbank.cn/" target="_blank" class="logo_h"><span
-                                        style="background:url(https://static.firstp2p.com/attachment/201804/19/21/d154d16e0e512b375d289011603cb305/index.jpg) no-repeat center;"></span></a>
-                                <a index="4" href="http://www.unitedmoney.com/" target="_blank" class="logo_h"><span
-                                        style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5e9e274ecd45a504c49c6c2cf82f9baa/index.jpg) no-repeat center;"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="right_but scroll_down"></div>
-                </div>
-        </section>
-    </div>
-    <script src="//assets.ncfwx.com/201911041358/v4/js/index/mfocus.js"></script>
-    <!-- 埋点 -->
-    <script>
-        window.onload = function () {
-            zhuge.track('进入网信首页')
-        }
-        $('html').on('click', '.nav_a', function () {
-            var nav_id = $(this).attr('data-content')
-            zhuge.track("首页_点击导航栏", {
-                "页面名称": nav_id
-            })
-        })
-        $('.top').on('click', '.JS_tx', function () {
-            zhuge.track("首页_顶部下拉框_点击提现")
-        })
-        $('.top').on('click', '.accountA', function () {
-            zhuge.track("首页_顶部下拉框_点击提现")
-        })
-        $('body').on('click', '.isNewUser_11626', function () {
-            zhuge.track('首页_点击右下角浮窗')
-        })
-        zhugeTrack(".JS_login", "首页_点击登录按钮", "位置", "顶部")
-        zhugeTrack(".main_part1 .fr a", "首页_点击登录按钮", "位置", "底部")
-        zhugeTrack(".main_part1 .invest_btn a", "首页_点击注册按钮", "位置", "底部")
-        zhugeTrack(".color_green", "首页_点击注册按钮", "位置", "顶部")
-        zhugeTrack(".station_intro", "首页_点击更多", "位置", "平台介绍")
-        zhugeTrack(".dev_see_more", "首页_点击更多", "位置", "发展历程")
-        zhugeTrack(".en_a", "首页_点击顶部英文站入口", "", "")
-        zhugeTrack(".JS_account", "首页_点击我的账户", "", "")
-        zhugeTrack(".JS_a", "首页_顶部下拉框_点击进入我的账户", "", "")
-        zhugeTrack(".JS_tx_wx", "点击选择提现账户", "提现账户", "网信")
-        zhugeTrack(".JS_tx_p2p", "点击选择提现账户", "提现账户", "网贷")
-
-        function zhugeTrack(place, name, position, content) {
-            $('html').on('click', place, function () {
-                // alert(name + ' ---' + position + ' ---' + content )
-                var data = {};
-                data[position] = content;
-                zhuge.track(name, data);
-            })
-        }
-    </script>
-    <!--banner end-->
+        <!--zx start-->
+        <!--zx end-->
+        <!--p2p start-->
+        <!--p2p end-->
+      </div>
     </section>
+  </div>
+  <div class="p_index p_index_bg3">
+    <section class="main">
+      <div class="mb30 partner clearfix" id="scroll">
+        <div class="title">
+          <img src="//assets.ncfwx.com/201911041358/v4/images/index/55@2x.png" />
+        </div>
+        <div class="clearfix">
+          <div class="left_but scroll_up"></div>
+          <div class="scrollDiv">
+            <ul>
+              <li>
+                <a index="0" href="http://www.ucfgroup.cn/" target="_blank" class="logo_h"><span
+                    style="background:url(./images/home/index1.jpg) no-repeat center;"></span></a>
+                <a index="1" href="http://www.ucf.cn/index.shtml" target="_blank" class="logo_h"><span
+                    style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5247588ab5dc41e082e68ea4ff7e4bb4/index.jpg) no-repeat center;"></span></a>
+                <a index="2" href="http://www.ucfpay.com/" target="_blank" class="logo_h"><span
+                    style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5e56de6758e48f79899a6ced6039ce0b/index.jpg) no-repeat center;"></span></a>
+                <a index="3" href="http://www.unitedbank.cn/" target="_blank" class="logo_h"><span
+                    style="background:url(https://static.firstp2p.com/attachment/201804/19/21/d154d16e0e512b375d289011603cb305/index.jpg) no-repeat center;"></span></a>
+                <a index="4" href="http://www.unitedmoney.com/" target="_blank" class="logo_h"><span
+                    style="background:url(https://static.firstp2p.com/attachment/201804/19/21/5e9e274ecd45a504c49c6c2cf82f9baa/index.jpg) no-repeat center;"></span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="right_but scroll_down"></div>
+        </div>
+    </section>
+  </div>
+  <!-- <script src="//assets.ncfwx.com/201911041358/v4/js/index/mfocus.js"></script> -->
+  <!-- 埋点 -->
+  <script>
+    window.onload = function () {
+      zhuge.track('进入网信首页')
+    }
+    $('html').on('click', '.nav_a', function () {
+      var nav_id = $(this).attr('data-content')
+      zhuge.track("首页_点击导航栏", {
+        "页面名称": nav_id
+      })
+    })
+    $('.top').on('click', '.JS_tx', function () {
+      zhuge.track("首页_顶部下拉框_点击提现")
+    })
+    $('.top').on('click', '.accountA', function () {
+      zhuge.track("首页_顶部下拉框_点击提现")
+    })
+    $('body').on('click', '.isNewUser_11626', function () {
+      zhuge.track('首页_点击右下角浮窗')
+    })
+    zhugeTrack(".JS_login", "首页_点击登录按钮", "位置", "顶部")
+    zhugeTrack(".main_part1 .fr a", "首页_点击登录按钮", "位置", "底部")
+    zhugeTrack(".main_part1 .invest_btn a", "首页_点击注册按钮", "位置", "底部")
+    zhugeTrack(".color_green", "首页_点击注册按钮", "位置", "顶部")
+    zhugeTrack(".station_intro", "首页_点击更多", "位置", "平台介绍")
+    zhugeTrack(".dev_see_more", "首页_点击更多", "位置", "发展历程")
+    zhugeTrack(".en_a", "首页_点击顶部英文站入口", "", "")
+    zhugeTrack(".JS_account", "首页_点击我的账户", "", "")
+    zhugeTrack(".JS_a", "首页_顶部下拉框_点击进入我的账户", "", "")
+    zhugeTrack(".JS_tx_wx", "点击选择提现账户", "提现账户", "网信")
+    zhugeTrack(".JS_tx_p2p", "点击选择提现账户", "提现账户", "网贷")
+
+    function zhugeTrack(place, name, position, content) {
+      $('html').on('click', place, function () {
+        // alert(name + ' ---' + position + ' ---' + content )
+        var data = {};
+        data[position] = content;
+        zhuge.track(name, data);
+      })
+    }
+  </script>
+  <!--banner end-->
+  </section>
+  </div>
+  <!--底部开始-->
+  <footer class="m_footer">
+    <div class="w1100 clearfix">
+      <div class="f_left" style="width:290px;"> <a class="logo" href="//www.ncfwx.com"></a>
+        <div class="tel pt25"> 客服热线<span>（工作时间 8:00-20:00）</span>
+          <h2 class="f18">95782</h2>
+        </div>
+      </div>
+      <div class="f_center">
+        <ul class="w147" style="width:136px;">
+          <li class="pb10">关于我们</li>
+          <li><a href="//www.ncfwx.com/help/id-1" target="_blank">平台介绍</a></li>
+          <li><a href="//www.ncfwx.com/help/id-aboutp2p" target="_blank">平台原理</a></li>
+          <li><a href="//www.ncfwx.com/help/id-866" target="_blank">荣誉奖项</a></li>
+          <li><a href="//www.ncfwx.com/help/id-5" target="_blank">联系我们</a></li>
+          <li><a href="//mp.weixin.qq.com/s/PZAsjL16ZQaOMT2evmA5qg" target="_blank">加入我们</a></li>
+        </ul>
+        <ul class="w147" style="width:136px;">
+          <li class="pb10">法律声明</li>
+          <li><a href="//www.ncfwx.com/help/id-27" target="_blank">网站声明</a></li>
+          <li><a href="//www.ncfwx.com/help/id-3" target="_blank">隐私政策</a></li>
+          <li><a href="//www.ncfwx.com/help/id-2" target="_blank">免责条款</a></li>
+        </ul>
+        <ul class="w147" style="width:136px;">
+          <li class="pb10">安全保障</li>
+          <li><a href="//www.ncfwx.com/help/id-772" target="_blank">系统安全</a></li>
+        </ul>
+        <ul class="w147" style="width:136px;">
+          <li class="pb10">用户帮助</li>
+          <li><a href="//www.ncfwx.com/help/id-776" target="_blank">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="f_right">
+        <h2 class="color_white f18 pb20">下载客户端</h2>
+        <div class="code fl mr20"
+          style="background:url(//static.firstp2p.com/attachment/201804/19/19/a3e9d8efb9443c6a45004d5cc99f9b03/index.jpg) no-repeat center top;">
+        </div>
+        <a href="https://itunes.apple.com/cn/app/wang-xin-li-cai/id853552412?mt=8" class="iphone_down"
+          target="_blank"><i class="icon_iphone mr10"></i>iphone</a> <a href="http://www.ncfwx.com/down/apk"
+          class="andriod_down" target="_blank"><i class="icon_andriod mr10"></i>Android</a>
+      </div>
     </div>
-    <!--底部开始-->
-    <footer class="m_footer">
-        <div class="w1100 clearfix">
-            <div class="f_left" style="width:290px;"> <a class="logo" href="//www.ncfwx.com"></a>
-                <div class="tel pt25"> 客服热线<span>（工作时间 8:00-20:00）</span>
-                    <h2 class="f18">95782</h2>
-                </div>
-            </div>
-            <div class="f_center">
-                <ul class="w147" style="width:136px;">
-                    <li class="pb10">关于我们</li>
-                    <li><a href="//www.ncfwx.com/help/id-1" target="_blank">平台介绍</a></li>
-                    <li><a href="//www.ncfwx.com/help/id-aboutp2p" target="_blank">平台原理</a></li>
-                    <li><a href="//www.ncfwx.com/help/id-866" target="_blank">荣誉奖项</a></li>
-                    <li><a href="//www.ncfwx.com/help/id-5" target="_blank">联系我们</a></li>
-                    <li><a href="//mp.weixin.qq.com/s/PZAsjL16ZQaOMT2evmA5qg" target="_blank">加入我们</a></li>
-                </ul>
-                <ul class="w147" style="width:136px;">
-                    <li class="pb10">法律声明</li>
-                    <li><a href="//www.ncfwx.com/help/id-27" target="_blank">网站声明</a></li>
-                    <li><a href="//www.ncfwx.com/help/id-3" target="_blank">隐私政策</a></li>
-                    <li><a href="//www.ncfwx.com/help/id-2" target="_blank">免责条款</a></li>
-                </ul>
-                <ul class="w147" style="width:136px;">
-                    <li class="pb10">安全保障</li>
-                    <li><a href="//www.ncfwx.com/help/id-772" target="_blank">系统安全</a></li>
-                </ul>
-                <ul class="w147" style="width:136px;">
-                    <li class="pb10">用户帮助</li>
-                    <li><a href="//www.ncfwx.com/help/id-776" target="_blank">常见问题</a></li>
-                </ul>
-            </div>
-            <div class="f_right">
-                <h2 class="color_white f18 pb20">下载客户端</h2>
-                <div class="code fl mr20"
-                    style="background:url(//static.firstp2p.com/attachment/201804/19/19/a3e9d8efb9443c6a45004d5cc99f9b03/index.jpg) no-repeat center top;">
-                </div>
-                <a href="https://itunes.apple.com/cn/app/wang-xin-li-cai/id853552412?mt=8" class="iphone_down"
-                    target="_blank"><i class="icon_iphone mr10"></i>iphone</a> <a href="http://www.ncfwx.com/down/apk"
-                    class="andriod_down" target="_blank"><i class="icon_andriod mr10"></i>Android</a>
-            </div>
-        </div>
-        <div class="copyright w1100" style="position:relative;">
-            <p class="pt20">北京经讯时代科技有限公司</p>
-            <p>© 2019 网信 All rights reserved<span class="s1">&nbsp;京ICP备16034138号-3 | 京ICP证140628号| <span
-                        class="s1"></span><a target="_blank"
-                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033551"
-                        style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img
-                            src="./images/home/police.jpg"
-                            style="float:left;" />京公网安备 11010502033551号</a></span></p>
-            <!--p><a id="___szfw_logo___" href="https://credit.szfw.org/CX20150807010653320333.html" target="_blank" style="position:absolute;right:120px;top:20px;display:inline !important;"><img width="100px" src="//static.ncfwx.com/attachment/201611/16/17/4b44329028cc885a564835fe6161a6e8/index.jpg" border="0"/></a><script type="text/javascript">(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script></p -->
-        </div>
-    </footer>
-    <style>
-        .jinggong {
-            color: #666666;
-        }
+    <div class="copyright w1100" style="position:relative;">
+      <p class="pt20">北京经讯时代科技有限公司</p>
+      <p>© 2019 网信 All rights reserved<span class="s1">&nbsp;京ICP备16034138号-3 | 京ICP证140628号| <span class="s1"></span><a
+            target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033551"
+            style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img
+              src="./images/home/police.jpg" style="float:left;" />京公网安备 11010502033551号</a></span></p>
+      <!--p><a id="___szfw_logo___" href="https://credit.szfw.org/CX20150807010653320333.html" target="_blank" style="position:absolute;right:120px;top:20px;display:inline !important;"><img width="100px" src="//static.ncfwx.com/attachment/201611/16/17/4b44329028cc885a564835fe6161a6e8/index.jpg" border="0"/></a><script type="text/javascript">(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script></p -->
+    </div>
+  </footer>
+  <style>
+    .jinggong {
+      color: #666666;
+    }
 
-        .jinggong:hover {
-            text-decoration: underline
-        }
+    .jinggong:hover {
+      text-decoration: underline
+    }
 
-        .p_index .main_part2 {
-            display: none
-        }
-    </style>
-    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?7beabd7be0432951e244081b9dc3adbc"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script>
-    <!--底部结束-->
-    <script type='text/javascript'>
-        var _ncf = { "prd": "firstp2p", "pstr": "", "pfunc": null, "pcon": "&uf=pc", "pck": { "channel": "channel", "fpid": "fpid" }, "trid": "", "channel": ['pubid', 'mediumid', 'adid', 'adsize'], "rfuniq": [], "rfmuti": [] };
-        (function (p, h, s) { var o = document.createElement(h); o.src = s; p.appendChild(o) })(document.getElementsByTagName("HEAD")[0], "script", "//assets.ncfwx.com/201911041358/default/js/ncfpb.1.5.min.js");
-    </script>
-    <!--[if IE 6]>
+    .p_index .main_part2 {
+      display: none
+    }
+  </style>
+  <!-- <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?7beabd7be0432951e244081b9dc3adbc"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script> -->
+  <!--底部结束-->
+  <!-- <script type='text/javascript'>
+    var _ncf = { "prd": "firstp2p", "pstr": "", "pfunc": null, "pcon": "&uf=pc", "pck": { "channel": "channel", "fpid": "fpid" }, "trid": "", "channel": ['pubid', 'mediumid', 'adid', 'adsize'], "rfuniq": [], "rfmuti": [] };
+    (function (p, h, s) { var o = document.createElement(h); o.src = s; p.appendChild(o) })(document.getElementsByTagName("HEAD")[0], "script", "//assets.ncfwx.com/201911041358/default/js/ncfpb.1.5.min.js");
+  </script> -->
+  <!--[if IE 6]>
 <link href="//assets.ncfwx.com/201911041358/v1/css/ie6-fix.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v1/js/common/DD_belatedPNG.js"></script>
 <script type="text/javascript" src="//assets.ncfwx.com/201911041358/v1/js/common/DD_belated_ie6_fix.js"></script>
 <![endif]-->
-    <!--logId:c8411b631a-->
+  <!--logId:c8411b631a-->
 </body>
 
 </html>

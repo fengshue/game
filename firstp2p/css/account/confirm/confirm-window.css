@@ -1,0 +1,181 @@
+*{
+  margin: 0;
+  padding:0;
+  list-style: none;
+  text-decoration: none;
+  outline: none; 
+  border:none;
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+  font-family:  Helvetica, sans-serif;
+}
+
+
+
+.JS_certModal2.certModal2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 4;
+  visibility: hidden;
+}
+.successModal2 {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.JS_certModal2 .wrapper{
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  margin-top:180px;
+  width:350px;
+  height:260px;
+  font-size: 12px;
+  font-family: Arial;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.JS_certModal2 .title{
+  padding:20px;
+}
+
+.JS_certModal2 .user-message{
+  border-width: 1px none none none;
+  border-top: 1px solid #ccc;
+  border-width: 1px 0px 0px 0px;
+  padding:10px 20px;
+}
+
+
+.JS_certModal2 .tip-title{
+  margin-top: 20px;
+  color:#555;
+  font-weight: 600;
+}
+
+
+.JS_certModal2 .message2{
+  margin-top: 10px;
+}
+
+.JS_certModal2 .agree{
+  margin-left: 50%;
+  margin-top: 15px;
+  transform: translateX(-50%);
+}
+
+.JS_certModal2 .content{
+  color:#39f;
+}
+
+.JS_certModal2 .btn1{
+  margin-left:40px;
+  width:30%;
+  height:35px;
+  margin-top: 70px;
+
+  background-color:#f30;
+  border: 1px solid transparent; 
+  border-radius: 4px;
+}
+
+.JS_certModal2  .ask{
+  color:#fff;
+}
+
+.JS_certModal2  .btn2{
+  width:30%;
+  height:35px;
+  float: right;
+  margin-top: 70px;
+
+  margin-right: 40px;
+  border: 1px solid transparent; 
+  border: 1px solid #f30;
+  border-radius: 4px;
+  background-color: white;
+  color:#f50;
+  font-weight: 600;
+}
+
+.successModal2  .success2{
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  margin-top:160px;
+  width:350px;
+  height:250px;
+  font-size: 12px;
+  font-family: Arial;
+  border-top: 1px solid #ccc;
+  background-color: white;
+}
+
+.successModal2  .title-right{
+  float: right;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#aaa;
+  cursor:context-menu;
+}
+
+
+
+
+.successModal2  .success-title{
+  margin-top: 10px;
+  color:#555;
+  font-weight: 600;
+}
+
+
+
+
+
+.font,
+.input-one{
+  margin-top: 30px;
+}
+.input-one{
+  width:170px;
+  height:35px;
+  border-radius: 5px;
+  border:1px solid #bbb;
+  margin-left: 10px;
+}
+.forget{
+  margin-left: 55px;
+  color:#39f;
+}
+.JS_successConfirm2{
+  margin-left: 90px;
+  width:150px;
+  height:33px;
+  background-color:#f30;
+  margin-top: 4%;
+  border-radius: 4px;
+  color:#fff;
+}
+
+.not{
+  visibility: hidden;
+}
+
+
+
+
+
+

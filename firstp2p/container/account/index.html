@@ -14,9 +14,16 @@
 
   <!--public js&css start -->
   <script src='../../js/jquery-3.4.1.min.js'></script>
-  <link rel='stylesheet' href='../../css/account/index.css'>
+  <link rel='stylesheet' href='../../css/account/index.less'>
   <link rel='stylesheet' type='text/css' href='../../css/common.css' />
   <link rel='stylesheet' type='text/css' href='../../css/base.css' />
+  <!-- <link rel="stylesheet" type='text/css' href="../../css/account/certModal/certModal.css" /> -->
+  <!-- <link rel="stylesheet" type='text/css' href="../../css/cert.css" /> -->
+  <link rel="stylesheet" type='text/css' href="../../css/account/certModal/tip.css" />
+  <link rel="stylesheet" type='text/css' href="../../css/account/confirm/confirm-window.css" />
+
+
+
   <!--public js&css end -->
 
 </head>
@@ -91,16 +98,16 @@
             <script type='text/javascript'>
               (function () {
                 // 埋点
-                var user_id = $('#user_id').val()
-                if (!!user_id) {
-                  var user_name = $('#user_name').val()
-                  zhuge.identify(user_id, {
-                    '用户名字': user_name
-                  })
-                }
-                $('.top').on('click', '.JS_cz', function () {
-                  zhuge.track('首页_顶部下拉框_点击充值')
-                });
+                // var user_id = $('#user_id').val()
+                // if (!!user_id) {
+                //   var user_name = $('#user_name').val()
+                //   zhuge.identify(user_id, {
+                //     '用户名字': user_name
+                //   })
+                // }
+                // $('.top').on('click', '.JS_cz', function () {
+                //   zhuge.track('首页_顶部下拉框_点击充值')
+                // });
                 var accountLi = $('#liIner46782_account_Li');
                 var dataPanel = accountLi.find('.dataPanel:first');//展现数据面板
                 var errorPanel = accountLi.find('.errorPanel:first');//错误数据面板
@@ -170,7 +177,7 @@
                   getDataAjax();
                 });
                 $('.top').on('click', '.j_txp2p_btn', function () {
-                  zhuge.track('首页_顶部下拉框_点击提现')
+                  // zhuge.track('首页_顶部下拉框_点击提现')
                   var isSvUser = $('.cg_carry_data #cg_isSvUser').val(),
                     totalCashMoney = $('.cg_carry_data #cg_totalCashMoney').val(),
                     wxCashMoney = $('.cg_carry_data #cg_wxCashMoney').val(),
@@ -286,7 +293,7 @@
       </div>
     </div>
   </header>
-  <script type='text/javascript'>
+  <!-- <script type='text/javascript'>
     (function ($) {
       var config = null;
 
@@ -318,7 +325,7 @@
         )
       }
     })(jQuery, 'firstp2p common.js');
-  </script>
+  </script> -->
 
   <!-- header.html -->
   <div class='blank'></div>
@@ -461,28 +468,6 @@
             }
 
           });
-
-          // //黄金券数量调取异步接口
-          // {if $is_firstp2p}
-          // var consume_type = 1;
-          // {else}
-          // var consume_type = 0;
-          // {/if}
-          // $.ajax({
-          //     url: '/account/discountCount',
-          //     type: 'GET',
-          //     data: {
-          //         consume_type: consume_type,
-          //         page: 1
-          //     },
-          //     dataType: 'json',
-          //     success: function(result) {
-          //         $('.ui_user_nav .use_amount').html(result.count);
-          //     },
-          //     error: function() {
-
-          //     }
-          // });
         })(jQuery);
       </script>
 
@@ -493,22 +478,6 @@
         <div class="p_account_personalset">
           <link href="../../css/account/p_account_peronalset.css" type="text/css" rel="stylesheet">
           <link rel="stylesheet" type="text/css" href="../../css/weebox.css">
-          <!-- <script src="//assets.ncfwx.com/201911041358/v3/js/account/setup.js"></script> -->
-
-          <!-- tooltip -->
-          <!-- <link href="//assets.ncfwx.com/201911041358/v3/js/widget/tooltip/tooltip.v1.css" rel="stylesheet"
-            type="text/css" /> -->
-          <!-- <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.core.js" type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.widget.js" type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/common/jquery.ui.position.js"
-            type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/button/button.v1.js" type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/menu/menu.v1.js" type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/widget/tooltip/tooltip.v1.js"
-            type="text/javascript"></script>
-          <script src="//assets.ncfwx.com/201911041358/v3/js/temp/passport.js"></script> -->
-          <!-- 弹出框 -->
-          <!-- <script src="//assets.ncfwx.com/201911041358/v3/js/temp/jquery.bgiframe.js"></script> -->
           <div id="riskTs" style="display:none;">
             <p style="font-size:13px;text-indent:2em;"><b><span
                   style="color:#f10b00;">风险提示：</span>投资人通过平台进行投资（包括网络借贷及其他产品），可能会因项目、市场、融资人信用等潜在风险造成投资损失，请充分理解并确认可以承受上述风险。平台不对任何投资行为承诺保本保息，不提供增信措施，不在法定途径之外进行宣传推介，不设立资金池或变相自融，严禁从事非法集资，有权拒绝执行任何可能违反《网络借贷信息中介机构业务活动管理暂行办法》或其他相关政策法规的指令或行为。</b>
@@ -655,10 +624,8 @@
                   <a href="/life/card_list" class="newBtn newBtn2">
                     修改
                   </a>
-
                 </li>
                 <!--新增理财和消费卡部分 end-->
-
                 <li>
                   <i class="yes"></i>
                   <div>
@@ -711,8 +678,6 @@
                   </div>
                   <a href="javascript:void(0)" id="pw_submit_button" data-type="0" class="newBtn">设置</a>
                 </li>
-
-
                 <li>
                   <i class="yes"></i>
                   <!--<i class="null" ></i>-->
@@ -725,10 +690,7 @@
                     </p>
                   </div>
                   <a href="/account/privileges" class="newBtn">设置</a>
-                </li>
-
-
-                
+                </li>         
                 <li>
                   <i class="no"></i>
                   <div>
@@ -739,11 +701,11 @@
                       <span class="sec-info gray">第三方提供担保</span>
                     </p>
                   </div>
-                  <a href="./tip.html" class="newBtn">投资</a>
+                  <a class="newBtn JS_invest" style='cursor: pointer;'>投资</a>
                 </li>
 
-                <li>
-                  <i class="no"></i>
+                <li class='dianzi'>
+                  <i></i>
                   <div>
                     <p class="topLine">
                       <label>电子签名数字证书</label>
@@ -752,8 +714,9 @@
                       <span class="sec-info gray">用于签署合同以及协议</span>
                     </p>
                   </div>
-                  <a href="./cert.html" class="newBtn">设置</a>
+                  <a href="./cert.html" class="newBtn sign-set">设置</a>
                 </li>
+
                 <li>
                   <i class="no"></i>
                   <div>
@@ -764,7 +727,7 @@
                       <span class="sec-info gray">借款方和转让方</span>
                     </p>
                   </div>
-                  <a href="" class="newBtn">签署</a>
+                  <a class="newBtn biao">设置</a>
                 </li>
               </ul>
             </div>
@@ -785,121 +748,156 @@
   </div>
 
   <div class="mb30"></div>
-  <script>
-    (function () {
-      zhuge.track("进入“我的账户”页面")
-    })()
-    // 埋点
-    $('.JS_account_li').click(function () {
-      var content = GetChinese($(this).html())
-      zhuge.track("我的账户_点击快捷入口", {
-        "入口名称": content
-      })
-    });
-    zhugeTrack(".JS_bind_a", "点击绑定银行卡", "", "")
-    zhugeTrack(".j_txp2p", "我的账户_点击提现", "", "")
-    // zhugeTrack(".JS_accountA","首页_顶部下拉框_点击进入我的账户", "", "")
-    function zhugeTrack(place, name, position, content) {
-      $(place).click(function () {
-        // alert(name + ' ---' + id + ' ---' + content )
-        var data = {};
-        data[position] = content;
-        zhuge.track(name, data);
-      })
-    }
-    //只提取汉字  
-    function GetChinese(strValue) {
-      if (strValue != null && strValue != "") {
-        var reg = /[/u4e00-\u9fa5]/g;
-        return strValue.match(reg).join("");
-      }
-      else
-        return "";
-    } 
-  </script>
-  <!--底部开始-->
-<footer class="m_footer"> 
-  <div class="w1100 clearfix">
-    <div class="f_left" style="width:290px;">
-      <a class="logo" href="//www.ncfwx.com"></a>
-      <div class="tel pt25">
-        客服热线
-        <span>（工作时间 8:00-20:00）</span>
-        <h2 class="f18">95782</h2>
-      </div>
-  </div> 
-  <div class="f_center">          
-    <ul class="w147" style="width:136px;">              
-      <li class="pb10">关于我们</li>
-      <li><a href="//www.ncfwx.com/help/id-1" target="_blank">平台介绍</a></li>
-      <li><a href="//www.ncfwx.com/help/id-aboutp2p" target="_blank">平台原理</a></li>
-      <li><a href="//www.ncfwx.com/help/id-866" target="_blank">荣誉奖项</a></li>
-      <li><a href="//www.ncfwx.com/help/id-5" target="_blank">联系我们</a></li>
-      <li><a href="//mp.weixin.qq.com/s/PZAsjL16ZQaOMT2evmA5qg" target="_blank">加入我们</a></li>
-    </ul>
-    <ul class="w147" style="width:136px;">              <li class="pb10">法律声明</li>
-      <li><a href="//www.ncfwx.com/help/id-27" target="_blank">网站声明</a></li>
-      <li><a href="//www.ncfwx.com/help/id-3" target="_blank">隐私政策</a></li>
-      <li><a href="//www.ncfwx.com/help/id-2" target="_blank">免责条款</a></li>
-    </ul>
-    <ul class="w147" style="width:136px;">              <li class="pb10">安全保障</li>
-      <li><a href="//www.ncfwx.com/help/id-772" target="_blank">系统安全</a></li>
-    </ul>
-    <ul class="w147" style="width:136px;">              <li class="pb10">用户帮助</li>
-      <li><a href="//www.ncfwx.com/help/id-776" target="_blank">常见问题</a></li>
-    </ul>
-  </div>
-  <div class="f_right">          
-    <h2 class="color_white f18 pb20">下载客户端</h2>
-    <div class="code fl mr20" ></div>
-    <a href="https://itunes.apple.com/cn/app/wang-xin-li-cai/id853552412?mt=8" class="iphone_down" target="_blank"><i class="icon_iphone mr10"></i>iphone</a>            <a href="http://www.ncfwx.com/down/apk" class="andriod_down" target="_blank"><i class="icon_andriod mr10"></i>Android</a>        </div>
-  </div>
-  <div class="copyright w1100" style="position:relative;">    
-    <p class="pt20">北京经讯时代科技有限公司</p>
-    <p>
-      © 2019 网信 All rights reserved
-      <span class="s1">
-        &nbsp;京ICP备16034138号-3 | 京ICP证140628号| 
-        <span class="s1"></span>
-        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033551" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-          <img src="../../images/home/police.jpg" style="float:left;" />
-          京公网安备 11010502033551号
-        </a>
-      </span>
-    </p>
-  </div>
-</footer>
-  <!-- <div class='blank'></div>
-  <style type="text/css">
-    .qj-footer {
-      border-top: 1px dotted #e3e3e3;
-      padding-top: 24px;
-      color: #888;
-      text-align: center;
-      background-color: #fff;
-    }
-  </style>
-  <div class="qj-footer">
-    <p>
-      客服热线：400-890-9888 （工作时间 7:00-23:00） 京ICP证130046号
-      <br>北京东方联合投资管理有限公司
-      <br>© 2020 All rights reserved
-    </p>
-  </div>
-  </div> -->
-</body>
 
+  <!--底部开始-->
+  <footer class="m_footer"> 
+    <div class="w1100 clearfix">
+      <div class="f_left" style="width:290px;">
+        <a class="logo" href="//www.ncfwx.com"></a>
+        <div class="tel pt25">
+          客服热线
+          <span>（工作时间 8:00-20:00）</span>
+          <h2 class="f18">95782</h2>
+        </div>
+    </div> 
+    <div class="f_center">          
+      <ul class="w147" style="width:136px;">              
+        <li class="pb10">关于我们</li>
+        <li><a href="//www.ncfwx.com/help/id-1" target="_blank">平台介绍</a></li>
+        <li><a href="//www.ncfwx.com/help/id-aboutp2p" target="_blank">平台原理</a></li>
+        <li><a href="//www.ncfwx.com/help/id-866" target="_blank">荣誉奖项</a></li>
+        <li><a href="//www.ncfwx.com/help/id-5" target="_blank">联系我们</a></li>
+        <li><a href="//mp.weixin.qq.com/s/PZAsjL16ZQaOMT2evmA5qg" target="_blank">加入我们</a></li>
+      </ul>
+      <ul class="w147" style="width:136px;">              <li class="pb10">法律声明</li>
+        <li><a href="//www.ncfwx.com/help/id-27" target="_blank">网站声明</a></li>
+        <li><a href="//www.ncfwx.com/help/id-3" target="_blank">隐私政策</a></li>
+        <li><a href="//www.ncfwx.com/help/id-2" target="_blank">免责条款</a></li>
+      </ul>
+      <ul class="w147" style="width:136px;">              <li class="pb10">安全保障</li>
+        <li><a href="//www.ncfwx.com/help/id-772" target="_blank">系统安全</a></li>
+      </ul>
+      <ul class="w147" style="width:136px;">              <li class="pb10">用户帮助</li>
+        <li><a href="//www.ncfwx.com/help/id-776" target="_blank">常见问题</a></li>
+      </ul>
+    </div>
+    <div class="f_right">          
+      <h2 class="color_white f18 pb20">下载客户端</h2>
+      <div class="code fl mr20" ></div>
+      <a href="https://itunes.apple.com/cn/app/wang-xin-li-cai/id853552412?mt=8" class="iphone_down" target="_blank"><i class="icon_iphone mr10"></i>iphone</a>            <a href="http://www.ncfwx.com/down/apk" class="andriod_down" target="_blank"><i class="icon_andriod mr10"></i>Android</a>        </div>
+    </div>
+    <div class="copyright w1100" style="position:relative;">    
+      <p class="pt20">北京经讯时代科技有限公司</p>
+      <p>
+        © 2019 网信 All rights reserved
+        <span class="s1">
+          &nbsp;京ICP备16034138号-3 | 京ICP证140628号| 
+          <span class="s1"></span>
+          <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033551" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+            <img src="../../images/home/police.jpg" style="float:left;" />
+            京公网安备 11010502033551号
+          </a>
+        </span>
+      </p>
+    </div>
+  </footer>
+ 
+
+  <!-- 申请并授权弹窗start -->
+  <div class = 'JS_certModal JS_certModal1 certModal'>
+    <div class='wrapper'>
+      <div class='title'>提示</div>
+      <div class='user-message'>
+          <div class='tip-title'>为增强合同签署的合法性，您需要使用以下信息申请电子签名数字证书并授权平台使用</div>
+          <div class='message1'>
+              <span>用户名称</span>
+              <span class='price JS_userName'></span>
+          </div class='message2'>
+          <div>
+              <span>证件类型</span>
+              <span class='price JS_certificates_type'></span>
+          </div>
+          <div class='message3'>
+              <span>证件号码</span>
+              <span class='price JS_certificates_number'></span>
+          </div>
+      </div>
+      <div class='agree'>我已阅读并同意<a href="./askbook.html" target="_blank" class='content'>《证书托管协议》</a></div>
+      <div class="btn">
+          <button class='btn1 JS_certBtn1'><a class='ask'>申请证书并授权</a></button>
+          <button class='btn2 JS_certModal_cancel1'>取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div class = 'successModal JS_successModal1'>
+    <div class="success">
+      <div class='title'>
+          <span class='title-left'>提示</span>
+          <span class='title-right JS_successCancel'>X</span>
+      </div>
+      <div class='show'>
+          <div class='round'>
+              <div class='correct'></div>
+          </div>
+          <div class='success-one'>申请并授权成功</div>
+          <button href='./index.html' class='affirm JS_successConfirm1'>确认</button>
+      </div>
+    </div>
+  </div>
+
+  <div class='JS_certModal2 certModal2'>
+    <div class='wrapper'>
+      <div class='title'>提示</div>
+      <div class='user-message'>
+        <div class='tip-title'>为增强合同签署的合法性，您需要使用以下信息申请电子签名数字证书并授权平台使用</div>
+        <button class='btn1 JS_certBtn2'><a class='ask'>确定</a></button>
+        <button class='btn2 JS_certModal_cancel2'>取消</button>
+      </div>
+    </div>
+  </div>
+  <div class='successModal2 JS_successModal2'>
+    <div class="success2">
+      <div class='title'>
+        <span class='title-left'>提示</span>
+        <span class='title-right JS_successCancel-two'>X</span>
+      </div>
+      <div class='user-message'>
+        <div class='success-title'>输入签署协议后,您将同意并签署所有待签署协议合同!</div>
+        <span class = 'font'>签署协议: </span>
+        <input class = 'input-one' type="text">
+        <button class='not'>输入不正确</button>
+        <a href = './reset.html' class = 'forget'>忘记密码?</a>
+        <button  class='affirm JS_successConfirm2'>确认</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    $.ajax({
+      url: 'https://www.easy-mock.com/mock/5e8346e0af7a735d802f8069/api/getUserInfo',
+      data: {
+        user_name: '123',
+        type: '2',
+      },
+      type: 'GET',
+      dataType: 'json',
+      success: function (e) {
+        const { data } = e;
+        if (e.errno === 1) {
+          $('i','.dianzi').addClass('yes');
+        }else{
+          $('i','.dianzi').addClass('no');
+        }
+      },
+      error: function (e){
+        $('i','.dianzi').addClass('yes');
+      }
+    })
+  </script>
+  <script src='../../js/account/confirm-window.js'></script>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
+  <script src='../../js/account/tip.js'></script>
+  <!-- 申请并授权弹窗end -->
+</body>
 </html>
 <!-- header.html -->
-
-
-
-
-
-
-
-
-
-
-
-

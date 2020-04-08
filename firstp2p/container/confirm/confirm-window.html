@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=], initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/account/confirm/confirm-window.css">
+</head>
+
+<body>
+  <div class='JS_certModal certModal'>
+    <div class='wrapper'>
+      <div class='title'>提示</div>
+      <div class='user-message'>
+        <div class='tip-title'>为增强合同签署的合法性，您需要使用以下信息申请电子签名数字证书并授权平台使用</div>
+        <button class='btn1 JS_certBtn'><a class='ask'>确定</a></button>
+        <button class='btn2 JS_certModal_cancel'>取消</button>
+      </div>
+    </div>
+  </div>
+  <div class='successModal JS_successModal'>
+    <div class="success">
+      <div class='title'>
+        <span class='title-left'>提示</span>
+        <span class='title-right JS_successCancel'>X</span>
+      </div>
+      <div class='user-message'>
+        <div class='success-title'>输入签署协议后,您将同意并签署所有待签署协议合同!</div>
+        <span class = 'font'>签署协议: </span>
+        <input class = 'input1' type="text">
+        <div class = 'forget'>忘记密码?</div>
+        <button href='./index.html' class='affirm JS_successConfirm'>确认</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../js/jquery-3.4.1.min.js"></script>
+  <script src='../../js/account/tip.js'></script>
+</body>
+
+</html>

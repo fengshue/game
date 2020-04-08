@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    outline: none; 
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    margin-top: 80px;
+    width:850px;
+    height:550px;
+    border: 1px solid #ccc;
+}
+
+.line{
+    display: inline-block;
+    width:1%;
+    height:20px;
+    background-color: #f50;;
+}
+.book{
+    display: inline-block;
+    vertical-align:top;
+    margin-top: -1px;
+}
+
+.about > div{
+    margin-left: 9%;
+}
+.about > .cert-top{
+    margin-left: 0;
+    padding: 10px 0px 10px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.password{
+    width:82%;
+    height:300px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+}
+.about .run-text div{
+    margin-right: 150px;
+    margin-top: 5px;
+}
+.run-right{
+    float: right;
+    margin-right: -70px;
+}
+.set{
+    margin-top: 10px;
+}
+.run-text{
+    margin: 15px 0px 0px 0px;
+    font-size: 13px;
+}
+
+.word{
+    float: right;
+    margin-right: 300px;
+    margin-top: 15px;
+}
+.ma{
+    width:100px;
+    height:30px;
+    background-color: #f50;
+    color:white;
+    border: none;
+    outline:none;
+    border-radius: 5px;
+}
+.hidden{
+    display: none;
+    position: absolute;
+    font-size: 11px;
+    padding:2px;
+    background-color: lightcoral;
+    color:#f50;
+    border: 1px solid  #f50;
+    opacity: 0.9;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.place{
+    margin-top: 30px;
+}
+.over,
+.me{
+    float:right;
+}
+
+.over{
+    position: relative;
+    left:-300px;
+    margin-top:20px;
+    border: 1px springgreen solid;
+}
+
+.power{
+    font-size: 15px;
+    line-height: 15px;
+    background-color: #f50;
+    color:white;
+    border: none;
+    outline:none;
+    width:300px;
+    padding:8px;
+    border-radius: 5px;
+}
+.me{
+    margin-right: 330px;
+    margin-top: 5px;
+}
+.let{
+    color:#39f;
+}
+input{
+    border: 1px solid #999;
+    height:30px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.input1,
+.input3,
+.input4{
+    width:225px;
+}

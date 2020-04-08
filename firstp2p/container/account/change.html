@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/account/p_account_cert/change.css">
+</head>
+<body>
+    <div class='about'>
+        <div class='cert-top'>
+          <div class='line'></div>
+          <div class='book'>申请证书并授权</div>
+        </div>
+          <form method="post"  action='./end.html'>
+            <div class='word place'>
+              <span>旧密码：</span>
+              <input type='number' class='input1' name='place'  placeholder=" 请输入旧密码以验证身份">
+              <div class="hidden">旧密码输入不正确</div>
+            </div>
+            <div class='word'>
+              <span>新密码：</span>
+              <input type='number' class='input2' name='new' placeholder=' 请输入6位数字签署密码'>
+            </div>
+            <div class="word">
+              <span>确定密码：</span>
+              <input type="number" class='input3' name='que' placeholder=' 请再次输入6位数字签署密码'>
+            </div>
+            <input type='submit' class='power over' value='确定' />
+          </form>
+      </div>
+      <script src="../../js/jquery-3.4.1.min.js"></script>
+      <script src='../../js/account/change.js'></script>
+</body>
+</html>

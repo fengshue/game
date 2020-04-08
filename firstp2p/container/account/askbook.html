@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    封装react组件：显示五星评价
+    两种简单的方式根据类似3.7和7.8这种评分显示五星评价
+
+    封装成react组件，使用时直接引用即可
+
+    第一种思想：设置五个元素，根据评分给不同的样式；第二种思想：设置两个元素，父元素给没颜色的五角星，子元素给有颜色的五角星，根据评分设置子元素的宽度来遮挡父元素的背景图
+
+    方法一：根据不同的评分设置不同的css样式
+
+    三张背景图：star0.png，star1.png，star2.png
+
+    1）css代码：样式可以按照自己的需求修改
+
+    复制代码
+    .star{
+        display: inline-block;
+    }
+    .star>span{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-size: 10px 10px;
+    }
+    .star0{
+        background-image: url(img/star0.png);
+    }
+    .star1{
+        background-image: url(img/star1.png);
+    }
+    .star2{
+        background-image: url(img/star2.png);
+    }
+    复制代码
+    2）组件js代码：
+
+    复制代码
+    import React,{Component} from 'react'
+    class Star extends Component{
+        constructor(props){
+            super(props);
+            this.state={
+                starNum:['star0','star0','star0','star0','star0'] //设置默认背景图
+            }
+        }
+        componentDidMount(){
+            this.getStar(Math.round(this.props.star)/2+1); //将传过来的类似7.3数字进行四舍五入再除2，得到的是类似2,3.5,6这种值
+        }
+        getStar(num){
+            let newStar = this.state.starNum.map((item)=>{ //当num=3.5时遍历后newStar数组变成['star2','star2','star2','star1','star0','star0']
+                --num;
+                return num>=1?'star2':((num>0)?'star1':'star0'); //两次三目运算
+            })
+            this.setState({
+                starNum:newStar  //设置state为遍历后的新数组
+            })
+        }
+    export default Star;
+    复制代码
+    
+
+    3）在其他组件中调用Star组件并传参：
+    需要少量的计算。
+
+    
+
+    方法二：利用子元素的宽度将父元素进行遮挡
+
+    父元素背景图为无色五角星，子元素背景图为有色五角星
+
+    背景图：
+
+
+
+    css代码：
+
+    复制代码
+    .newstar ul{
+        background-image: url(component/img/ico.png);
+    }
+    .newstar ul li{
+        height: 60px;
+        background: url(component/img/ico.png) left -62px;
+    }
+    复制代码
+    组件js代码：
+
+    复制代码
+    import React,{Component} from 'react'
+    class Star extends Component{
+        render(){
+            l
+    export default Star;
+    复制代码
+    3）调用并传参
+    背景图大小完全一样，并且要精确计算五角星个数对应的子元素宽度
+
+    标签: demo, react
+    </div>
+</body>
+</html>
